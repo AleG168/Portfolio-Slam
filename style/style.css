@@ -34,7 +34,9 @@ body {
 }
 
 .logo span {
-    color: #00d2d3; /* Couleur d'accentuation (Cyan) */
+    color : rgb(29, 28, 28);
+    color:#fff;
+    text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
 }
 
 /* --- Navigation Desktop --- */
