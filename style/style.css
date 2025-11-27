@@ -21,22 +21,27 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre légère sous la barre */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* --- Logo Clean --- */
+/* --- Logo "Alexandre" (Avec Glow Blanc) --- */
 .logo {
     color: #fff;
     font-size: 1.5rem;
-    font-weight: 600; /* Un peu plus gras */
+    font-weight: 700;
     text-decoration: none;
     letter-spacing: 1px;
-    transition: color 0.3s ease;
+    
+    /* Le Glow blanc que tu voulais */
+    text-shadow: 1px 1px 10px #fff, 1px 1px 15px #ccc;
 }
 
-/* Petit effet au survol du logo uniquement (optionnel) */
-.logo:hover {
-    color: #00d2d3;
+/* --- Suffixe ".Dev" (Bleu & Sans Glow) --- */
+.logo span {
+    color: #00d2d3; /* Bleu Cyan */
+    
+    /* IMPORTANT : 'none' annule l'héritage du glow du parent */
+    text-shadow: none; 
 }
 
 /* --- Navigation Desktop --- */
@@ -56,7 +61,7 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Animation de soulignement */
+/* Soulignement bleu au survol */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -76,13 +81,13 @@ body {
     width: 100%;
 }
 
-/* --- Menu Burger (Mobile) --- */
+/* --- Menu Burger --- */
 .menu-toggle {
     display: none;
     cursor: pointer;
 }
 
-/* Utilisation de la classe .bar sur des DIVs */
+/* Les barres sont des DIV maintenant, pas des spans */
 .bar {
     display: block;
     width: 25px;
@@ -90,17 +95,16 @@ body {
     margin: 5px auto;
     transition: all 0.3s ease-in-out;
     background-color: #fff;
-    border-radius: 2px; /* Bords légèrement arrondis pour les barres */
+    border-radius: 2px;
 }
 
-/* --- RESPONSIVE : Mobile & Tablette (max 768px) --- */
+/* --- RESPONSIVE : Mobile (max 768px) --- */
 @media screen and (max-width: 768px) {
     
     .menu-toggle {
         display: block;
     }
 
-    /* Animation Croix Burger */
     .menu-toggle.is-active .bar:nth-child(2) {
         opacity: 0;
     }
@@ -111,15 +115,14 @@ body {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Menu Latéral */
     .nav-menu {
         position: absolute;
         top: 80px;
         left: -100%;
         width: 100%;
         height: calc(100vh - 80px);
-        background: #1e1e1e; /* Même fond que le header pour continuité */
-        border-top: 1px solid #333; /* Séparation subtile */
+        background: #1e1e1e;
+        border-top: 1px solid #333;
         flex-direction: column;
         align-items: center;
         transition: left 0.4s ease;
@@ -137,7 +140,7 @@ body {
     }
 
     .nav-link {
-        font-size: 1.3rem; /* Liens plus gros sur mobile */
+        font-size: 1.3rem;
         display: inline-block;
     }
 
