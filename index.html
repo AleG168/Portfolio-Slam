@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio SLAM SIO 2</title>
-    <!-- J'ai ajouté une police Google Font pour faire plus joli -->
+    <!-- Police Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
 <header class="main-header">
-    <!-- Le Logo / Titre -->
-    <a href="Home.html" class="logo">Alexandre<span>.Dev</span></a>
+    <!-- Logo propre sans span -->
+    <a href="index.html" class="logo">Alexandre.Dev</a>
 
-    <!-- Le bouton Menu Burger (visible uniquement sur mobile) -->
+    <!-- Menu Burger avec des div au lieu de span -->
     <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
-    <!-- La navigation -->
     <nav class="nav-menu">
         <ul>
             <li><a href="index.html" class="nav-link">Accueil</a></li>
@@ -34,13 +33,11 @@
     </nav>
 </header>
 
-<!-- Contenu de test pour voir le scroll -->
 <section style="padding: 100px 20px; color: #333;">
     <h2>Bienvenue sur mon Portfolio</h2>
-    <p>Ceci est un exemple de contenu.</p>
+    <p>Exemple de contenu pour tester le menu.</p>
 </section>
 
-<!-- Script pour le menu mobile -->
 <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');

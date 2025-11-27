@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Police moderne */
+    font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
 }
 
@@ -18,25 +18,25 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    position: sticky; /* La barre reste en haut quand on scrolle */
+    position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre légère sous la barre */
 }
 
-/* --- Logo --- */
+/* --- Logo Clean --- */
 .logo {
-    color : rgb(29, 28, 28);
-    color:#fff;
-    text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
+    color: #fff;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 600; /* Un peu plus gras */
     text-decoration: none;
     letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
-.logo span {
-    color: #00d2d3; /* Couleur d'accentuation (Cyan) */
+/* Petit effet au survol du logo uniquement (optionnel) */
+.logo:hover {
+    color: #00d2d3;
 }
 
 /* --- Navigation Desktop --- */
@@ -52,10 +52,11 @@ body {
     margin: 0 15px;
     position: relative;
     padding: 5px 0;
+    font-weight: 400;
     transition: color 0.3s ease;
 }
 
-/* Animation au survol (petite barre qui apparait dessous) */
+/* Animation de soulignement */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -75,12 +76,13 @@ body {
     width: 100%;
 }
 
-/* --- Menu Burger (Caché sur Desktop) --- */
+/* --- Menu Burger (Mobile) --- */
 .menu-toggle {
     display: none;
     cursor: pointer;
 }
 
+/* Utilisation de la classe .bar sur des DIVs */
 .bar {
     display: block;
     width: 25px;
@@ -88,17 +90,17 @@ body {
     margin: 5px auto;
     transition: all 0.3s ease-in-out;
     background-color: #fff;
+    border-radius: 2px; /* Bords légèrement arrondis pour les barres */
 }
 
 /* --- RESPONSIVE : Mobile & Tablette (max 768px) --- */
 @media screen and (max-width: 768px) {
     
-    /* Afficher le bouton burger */
     .menu-toggle {
         display: block;
     }
 
-    /* Transformer le burger en croix quand actif */
+    /* Animation Croix Burger */
     .menu-toggle.is-active .bar:nth-child(2) {
         opacity: 0;
     }
@@ -109,40 +111,37 @@ body {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Le menu devient une liste verticale cachée */
+    /* Menu Latéral */
     .nav-menu {
         position: absolute;
-        top: 80px; /* Juste en dessous du header */
-        left: -100%; /* Caché à gauche de l'écran */
+        top: 80px;
+        left: -100%;
         width: 100%;
-        height: calc(100vh - 80px); /* Prend toute la hauteur restante */
-        background: #2c2c2c;
+        height: calc(100vh - 80px);
+        background: #1e1e1e; /* Même fond que le header pour continuité */
+        border-top: 1px solid #333; /* Séparation subtile */
         flex-direction: column;
         align-items: center;
-        transition: all 0.4s ease;
-        opacity: 0;
+        transition: left 0.4s ease;
     }
 
     .nav-menu ul {
         flex-direction: column;
         width: 100%;
         text-align: center;
-        padding-top: 2rem;
+        padding-top: 3rem;
     }
 
     .nav-menu ul li {
-        margin: 20px 0;
+        margin: 25px 0;
     }
 
     .nav-link {
-        font-size: 1.2rem;
-        display: block;
-        width: 100%;
+        font-size: 1.3rem; /* Liens plus gros sur mobile */
+        display: inline-block;
     }
 
-    /* Quand on ajoute la classe 'active' via JS, le menu apparait */
     .nav-menu.active {
         left: 0;
-        opacity: 1;
     }
 }
