@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.main-header {
+    background: #1e1e1e;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-block {
+    background: #333;
+    color: white;
+    padding: 15px 65px;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.nav-block:hover {
+    background: #555;
+}
+
+h1 {
+    padding-right: 10%;
+    color : rgb(29, 28, 28);
+    color:#fff;
+    text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
+}
+
+.BlocCenter {
+    align-content: center;
+}
