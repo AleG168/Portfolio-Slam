@@ -3,23 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortFolio SLAM SIO 2</title>
+    <title>Portfolio SLAM SIO 2</title>
+    <!-- J'ai ajouté une police Google Font pour faire plus joli -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
 <header class="main-header">
-    <h1>Portfolio - Alexandre Le Guern</h1>
-    <a href="Home.html" class="nav-block BlocCenter">Accueil</a>
-    <a href="Présentation.html" class="nav-block BlocCenter">Présentation</a>
-    <a href="services.html" class="nav-block BlocCenter">Services</a>
-    <a href="Compétences.html" class="nav-block BlocCenter">Compétences</a>
-    <a href="stages.html" class="nav-block BlocCenter">Stages</a>
-    <a href="projets.html" class="nav-block BlocCenter">Projets</a>
+    <!-- Le Logo / Titre -->
+    <a href="Home.html" class="logo">Alexandre<span>.Dev</span></a>
+
+    <!-- Le bouton Menu Burger (visible uniquement sur mobile) -->
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <!-- La navigation -->
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="Home.html" class="nav-link">Accueil</a></li>
+            <li><a href="Présentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="Compétences.html" class="nav-link">Compétences</a></li>
+            <li><a href="stages.html" class="nav-link">Stages</a></li>
+            <li><a href="projets.html" class="nav-link">Projets</a></li>
+        </ul>
+    </nav>
 </header>
 
+<!-- Contenu de test pour voir le scroll -->
+<section style="padding: 100px 20px; color: #333;">
+    <h2>Bienvenue sur mon Portfolio</h2>
+    <p>Ceci est un exemple de contenu.</p>
+</section>
 
+<!-- Script pour le menu mobile -->
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
 
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+    });
+</script>
 
 </body>
 </html>
