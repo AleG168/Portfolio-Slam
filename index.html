@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio SLAM SIO 2</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/Navbar.css">
+    <link rel="stylesheet" href="style/index.css">
 </head>
 <body>
 
 <header class="main-header">
-    <!-- "Alexandre" reçoit le style de base (Glow), le span isole le .Dev -->
     <a href="index.html" class="logo">Alexandre<span>.Dev</span></a>
 
-    <!-- Menu Burger propre (DIV au lieu de SPAN) -->
     <div class="menu-toggle" id="mobile-menu">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -24,7 +23,7 @@
         <ul>
             <li><a href="index.html" class="nav-link">Accueil</a></li>
             <li><a href="pages/Présentation.html" class="nav-link">Présentation</a></li>
-            <li><a href="pages/services.html" class="nav-link">Services</a></li>
+            <li><a href="pages/formation.html" class="nav-link">Formation</a></li>
             <li><a href="pages/Compétences.html" class="nav-link">Compétences</a></li>
             <li><a href="pages/stages.html" class="nav-link">Stages</a></li>
             <li><a href="pages/projets.html" class="nav-link">Projets</a></li>
@@ -32,9 +31,40 @@
     </nav>
 </header>
 
-<section style="padding: 100px 20px; color: #333;">
-    <h2>Bienvenue sur mon Portfolio</h2>
-    <p>Exemple de contenu.</p>
+<!-- ----------- SECTION HERO ----------- -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Bienvenue sur mon Portfolio</h1>
+        <p>Je suis Alexandre, étudiant en BTS SIO option SLAM.  
+        Découvrez mon parcours, mes projets et mes compétences en développement.</p>
+
+        <div class="hero-buttons">
+            <a href="pages/Présentation.html" class="btn-primary">Me découvrir</a>
+            <a href="pages/projets.html" class="btn-secondary">Voir mes projets</a>
+        </div>
+    </div>
+</section>
+
+<!-- ----------- SECTION APERÇU ----------- -->
+<section class="preview">
+    <h2>Ce que vous trouverez ici</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🎓 Formation</h3>
+            <p>Mon BTS SIO SLAM, les compétences acquises et mon parcours scolaire.</p>
+        </div>
+
+        <div class="card">
+            <h3>💻 Projets</h3>
+            <p>Applications, sites web, TP SLAM, projets personnels ou scolaires.</p>
+        </div>
+
+        <div class="card">
+            <h3>🏢 Stages</h3>
+            <p>Mes missions professionnelles réalisées en entreprise durant mes deux stages.</p>
+        </div>
+    </div>
 </section>
 
 <script>
