@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formation - Portfolio SLAM SIO2</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tes fichiers CSS externes -->
     <link rel="stylesheet" href="../style/Navbar.css">
     <link rel="stylesheet" href="../style/formation.css">
 </head>
@@ -23,7 +27,7 @@
         <ul>
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
             <li><a href="presentation.html" class="nav-link">Présentation</a></li>
-            <li><a href="formation.html" class="nav-link">Formation</a></li>
+            <li><a href="formation.html" class="nav-link active">Formation</a></li>
             <li><a href="competences.html" class="nav-link">E5</a></li>
             <li><a href="stages.html" class="nav-link">Stages</a></li>
             <li><a href="projets.html" class="nav-link">Projets</a></li>
@@ -61,42 +65,65 @@
     <p>L’option que j’ai choisie : Solutions Logicielles et Applications Métiers.</p>
 
     <div class="cards">
-
         <div class="card">
-            <h3>💻 Développement</h3>
+            <i class="fas fa-code icon-card"></i>
+            <h3>Développement</h3>
             <p>Apprentissage du développement web, logiciel, programmation orientée objet, et frameworks modernes.</p>
         </div>
 
         <div class="card">
-            <h3>🗄️ Bases de données</h3>
+            <i class="fas fa-database icon-card"></i>
+            <h3>Bases de données</h3>
             <p>Modélisation, gestion, optimisation et requêtes SQL sur MySQL ou MariaDB.</p>
         </div>
 
         <div class="card">
-            <h3>⚙️ Gestion de projets</h3>
+            <i class="fas fa-tasks icon-card"></i>
+            <h3>Gestion de projets</h3>
             <p>Méthodes agiles, analyse des besoins, conception UML, cycle de développement.</p>
         </div>
-
     </div>
 </section>
 
-<!-- ----------- SECTION COMPÉTENCES ----------- -->
+<!-- ----------- SECTION COMPÉTENCES RÉVISÉE ----------- -->
 <section class="competences">
-    <h2>Compétences développées</h2>
-    <div class="cards">
-        <div class="card">
-        <ul class="compet-list">
-            <li>Développer des applications sécurisées</li>
-            <li>Concevoir des bases de données et manipuler SQL</li>
-            <li>Créer des sites web modernes et responsives</li>
-            <li>Intervenir sur des projets en mode agile</li>
-            <li>Assurer la maintenance et l’évolution d’applications</li>
-            <li>Créer une documentation technique claire</li>
-        </ul>
+    <div class="container">
+        <h2>Compétences développées</h2>
+        <div class="competences-grid">
+            
+            <div class="comp-item">
+                <div class="comp-icon"><i class="fas fa-shield-alt"></i></div>
+                <p>Développer des applications sécurisées</p>
+            </div>
+
+            <div class="comp-item">
+                <div class="comp-icon"><i class="fas fa-table"></i></div>
+                <p>Concevoir des bases de données et manipuler SQL</p>
+            </div>
+
+            <div class="comp-item">
+                <div class="comp-icon"><i class="fas fa-laptop-code"></i></div>
+                <p>Créer des sites web modernes et responsives</p>
+            </div>
+
+            <div class="comp-item">
+                <div class="comp-icon"><i class="fas fa-users-cog"></i></div>
+                <p>Intervenir sur des projets en mode agile</p>
+            </div>
+
+            <div class="comp-item">
+                <div class="comp-icon"><i class="fas fa-tools"></i></div>
+                <p>Assurer la maintenance et l’évolution d’applications</p>
+            </div>
+
+            <div class="comp-item">
+                <div class="comp-icon"><i class="fas fa-file-alt"></i></div>
+                <p>Créer une documentation technique claire</p>
+            </div>
+
         </div>
     </div>
 </section>
-
 
 <script>
     const menuToggle = document.getElementById('mobile-menu');
