@@ -58,6 +58,10 @@ body {
     font-size: 1.1rem;
 }
 
+.couleurBlue {
+    color : #01a3a4;
+}
+
 /* --- Grille et Cartes --- */
 .cert-container {
     padding: 0 5% 80px 5%;

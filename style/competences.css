@@ -27,6 +27,7 @@ table {
 
 /* --- STYLE DE LA LIGNE BLEUE (Bandeau) --- */
 tr.ligne-bleue td {
+    background-color: #00d2d3 !important; /* Couleur Cyan SLAM */
     color: white !important;
     font-weight: 600;
     text-align: center;
