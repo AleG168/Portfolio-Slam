@@ -96,7 +96,7 @@
     async function loadExcel() {
         try {
             // REMPLACE 'ton-fichier.xlsx' par le vrai nom/chemin de ton fichier
-            const response = await fetch('../data/competences.xlsx'); 
+            const response = await fetch('../documents/competences..xlsx'); 
             const arrayBuffer = await response.arrayBuffer();
             const data = new Uint8Array(arrayBuffer);
             const workbook = XLSX.read(data, { type: 'array' });
