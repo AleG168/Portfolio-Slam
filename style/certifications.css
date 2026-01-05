@@ -1,0 +1,116 @@
+/* Configuration Générale spécifique à cette page */
+body {
+    background-color: #fcfcfc;
+}
+
+/* Style de l'en-tête (Intro) */
+.intro-cert {
+    text-align: center;
+    padding: 120px 20px 40px 20px; /* Padding haut large pour la navbar fixe */
+}
+
+.intro-cert h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.intro-cert p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Conteneur de la grille */
+.cert-container {
+    padding: 20px 5% 60px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Carte de certification */
+.cert-card {
+    background: #ffffff;
+    padding: 40px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-top: 6px solid #00d2d3; /* Ta couleur turquoise */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cert-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 210, 211, 0.15);
+}
+
+.cert-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.cert-card h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.cert-subtitle {
+    color: #00d2d3;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+}
+
+.cert-text {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Aligne les statuts en bas */
+}
+
+/* Badge de statut */
+.cert-status {
+    display: inline-block;
+    padding: 8px 25px;
+    background-color: rgba(0, 210, 211, 0.1);
+    color: #00d2d3;
+    border: 1px solid #00d2d3;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+/* Section Bouton (déjà présente dans ton style original) */
+.cv-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 80px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .intro-cert h2 {
+        font-size: 2rem;
+    }
+    
+    .cert-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}

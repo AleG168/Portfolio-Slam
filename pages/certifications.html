@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications - Alexandre.Dev</title>
+    <!-- Polices -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Fichiers CSS existants -->
+    <link rel="stylesheet" href="../style/Navbar.css">
+    <link rel="stylesheet" href="../style/index.css">
+    <!-- Nouveau fichier CSS spécifique -->
+    <link rel="stylesheet" href="../style/certifications.css">
+</head>
+<body>
+
+<header class="main-header">
+    <a href="../index.html" class="logo">Alexandre<span>.Dev</span></a>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="formation.html" class="nav-link">Formation</a></li>
+            <li><a href="competences.html" class="nav-link">E5</a></li>
+            <li><a href="stages.html" class="nav-link">Stages</a></li>
+            <li><a href="projets.html" class="nav-link">Projets</a></li>
+            <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Section Titre -->
+<section class="intro-cert">
+    <h2>Mes Certifications</h2>
+    <p>Validation de mes compétences en cybersécurité et protection des données.</p>
+</section>
+
+<!-- Section Grille de Certifications -->
+<section class="cert-container">
+    <div class="cert-grid">
+        
+        <!-- CNIL -->
+        <div class="cert-card">
+            <div class="cert-icon">⚖️</div>
+            <h3>CNIL</h3>
+            <p class="cert-subtitle">Atelier RGPD</p>
+            <p class="cert-text">Formation sur la protection des données personnelles et les obligations de conformité numérique.</p>
+            <div class="cert-status">Validé</div>
+        </div>
+
+        <!-- ANSSI -->
+        <div class="cert-card">
+            <div class="cert-icon">🛡️</div>
+            <h3>ANSSI</h3>
+            <p class="cert-subtitle">SecNumacadémie</p>
+            <p class="cert-text">Sensibilisation complète à la cybersécurité : hygiène informatique et protection des systèmes.</p>
+            <div class="cert-status">Certifié</div>
+        </div>
+
+        <!-- CISCO -->
+        <div class="cert-card">
+            <div class="cert-icon">🌐</div>
+            <h3>Cisco</h3>
+            <p class="cert-subtitle">Intro to Cybersecurity</p>
+            <p class="cert-text">Bases fondamentales sur les menaces, la sécurité des réseaux et la protection de la vie privée.</p>
+            <div class="cert-status">Obtenu</div>
+        </div>
+
+        <!-- ROOT ME -->
+        <div class="cert-card">
+            <div class="cert-icon">🚩</div>
+            <h3>Root Me</h3>
+            <p class="cert-subtitle">Hacking & CTF</p>
+            <p class="cert-text">Apprentissage pratique via des challenges techniques en exploitation de failles et sécurité web.</p>
+            <div class="cert-status">Actif</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Bouton Retour -->
+<div class="cv-section">
+    <a href="../index.html" class="btn-cv">Retour à l'accueil</a>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
