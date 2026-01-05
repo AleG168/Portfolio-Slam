@@ -1,99 +1,90 @@
-/* --- Mise en page globale --- */
+/* --- Mise en page --- */
 .table-wrapper {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     padding: 10px;
-    min-height: 80vh; /* Utilise plus de hauteur d'écran */
+    background-color: #f4f4f4;
 }
 
-/* --- Container du tableau (Très large) --- */
+/* Container extra large */
 .table-container {
-    width: 98%; /* Prend presque toute la largeur */
-    max-width: 1600px; /* Limite maximale pour les très grands écrans */
+    width: 98%;
+    max-width: 1700px;
     background: white;
     padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    overflow: hidden; /* Coupe ce qui dépasse du rayon de bordure */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
-/* --- Zone de scroll interne (Pour fixer l'en-tête) --- */
+/* Zone de scroll interne */
 #excel-display {
-    max-height: 700px; /* Hauteur du tableau avant de scroller à l'intérieur */
-    overflow-y: auto; /* Scroll vertical */
-    overflow-x: auto; /* Scroll horizontal pour les colonnes larges */
-    border: 1px solid #eee;
+    max-height: 750px; /* Coupe le tableau après cette hauteur */
+    overflow-y: auto;
+    overflow-x: auto;
+    position: relative;
+    border: 1px solid #ddd;
 }
 
-/* --- Style du tableau HTML --- */
-#excel-display table {
+table {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Poppins', sans-serif;
-    color: #333;
+    table-layout: auto;
 }
 
-/* --- EN-TETE STATIQUE (STICKY) --- */
-/* On cible les cellules de la première ligne */
-#excel-display tr:first-child td {
-    background-color: #00d2d3 !important; /* Le bleu SLAM */
-    color: white;
+/* --- FIX DU BANDEAU BLEU STATIQUE --- */
+/* On cible la classe ajoutée par le JavaScript sur la ligne du titre */
+tr.sticky-header td {
+    background-color: #00d2d3 !important; /* Bleu Cyan SLAM */
+    color: white !important;
     font-weight: 600;
+    text-transform: uppercase;
     position: sticky;
-    top: 0; /* Reste "collé" en haut du bloc #excel-display */
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Ombre pour l'effet de superposition */
-    padding: 15px 20px;
+    top: 0; /* Reste collé en haut du scroll */
+    z-index: 100;
+    padding: 20px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: none;
 }
 
-/* --- Style des cellules --- */
-#excel-display td {
-    padding: 12px 18px;
+/* Style des cellules normales */
+td {
+    padding: 15px 20px;
     border: 1px solid #eee;
     text-align: left;
     font-size: 0.95rem;
-    min-width: 120px; /* Évite que les colonnes soient trop écrasées */
+    vertical-align: top;
+    min-width: 180px; /* Évite que les colonnes soient trop serrées */
 }
 
-/* Alternance de couleurs de lignes */
-#excel-display tr:nth-child(even) {
-    background-color: #fcfcfc;
+/* Lignes une sur deux */
+tr:nth-child(even) {
+    background-color: #fafafa;
 }
 
 /* Effet au survol */
-#excel-display tr:hover {
+tr:hover {
     background-color: #f1faff;
-    transition: 0.2s ease-in-out;
 }
 
-/* --- Messages d'erreur et chargement --- */
+/* --- Messages --- */
+.loading {
+    text-align: center;
+    padding: 80px;
+    color: #888;
+    font-style: italic;
+}
+
 .error {
     color: #e74c3c;
     text-align: center;
     padding: 40px;
     font-weight: bold;
-    line-height: 1.6;
 }
 
-.loading {
-    text-align: center;
-    padding: 60px;
-    color: #999;
-    font-style: italic;
-    font-size: 1.1rem;
-}
-
-/* --- RESPONSIVE MOBILE --- */
+/* --- Responsive --- */
 @media (max-width: 768px) {
-    .table-container {
-        width: 100%;
-        padding: 5px;
-        border-radius: 0;
-    }
-    
-    #excel-display td {
-        padding: 8px;
-        font-size: 0.8rem;
-    }
+    .table-container { border-radius: 0; width: 100%; }
+    td { padding: 10px; font-size: 0.8rem; }
 }

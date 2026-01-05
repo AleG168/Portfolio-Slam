@@ -8,12 +8,12 @@
     <!-- Polices -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <!-- CSS -->
+    <!-- Fichiers CSS -->
     <link rel="stylesheet" href="../style/Navbar.css">
     <link rel="stylesheet" href="../style/formation.css">
     <link rel="stylesheet" href="../style/competences.css">
     
-    <!-- Bibliothèque pour lire le fichier Excel -->
+    <!-- Bibliothèque pour lire le Excel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
@@ -40,15 +40,15 @@
 </header>
 
 <section class="intro">
-    <h2>Mes Compétences</h2>
-    <p>Référentiel technique et validation des acquis de formation.</p>
+    <h2>Tableau des Compétences</h2>
+    <p>Référentiel officiel BTS SIO - Option SLAM</p>
 </section>
 
-<!-- SECTION TABLEAU AGRANDIE -->
+<!-- SECTION TABLEAU TRES LARGE -->
 <main class="table-wrapper">
     <div class="table-container">
         <div id="excel-display" class="loading">
-            Chargement du tableau de bord...
+            Chargement du référentiel de compétences...
         </div>
     </div>
 </main>
@@ -63,31 +63,41 @@
         navMenu.classList.toggle('active');
     });
 
-    // --- Chargement et Traitement de l'Excel ---
+    // --- Lecture et Nettoyage du Excel ---
     async function loadExcel() {
         try {
-            // Assure-toi que ton fichier s'appelle bien "competences.xlsx" (un seul point)
+            // Appel du fichier (Assure-toi qu'il n'y a qu'un seul point avant xlsx)
             const response = await fetch('../documents/competences.xlsx'); 
-            
-            if (!response.ok) throw new Error("Fichier Excel introuvable dans /documents/");
+            if (!response.ok) throw new Error("Fichier introuvable");
 
             const arrayBuffer = await response.arrayBuffer();
             const data = new Uint8Array(arrayBuffer);
             const workbook = XLSX.read(data, { type: 'array' });
+            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
 
-            // On prend la première feuille de calcul
-            const sheetName = workbook.SheetNames[0];
-            const worksheet = workbook.Sheets[sheetName];
-
-            // Conversion en HTML (blankrows: false permet de supprimer les lignes vides du bas)
+            // Conversion HTML
             const htmlTable = XLSX.utils.sheet_to_html(worksheet, { blankrows: false });
-
             const container = document.getElementById('excel-display');
             container.innerHTML = htmlTable;
 
-            // Nettoyage supplémentaire des lignes totalement vides
-            const rows = container.querySelectorAll('tr');
+            // --- LOGIQUE DE DETECTION DU BANDEAU BLEU ---
+            const table = container.querySelector('table');
+            const rows = Array.from(table.querySelectorAll('tr'));
+            let headerFound = false;
+
             rows.forEach(row => {
+                const content = row.innerText.toUpperCase();
+                
+                // Détection de la ligne "BTS SERVICES..."
+                if (content.includes("BTS SERVICES") || content.includes("SESSION 2026")) {
+                    row.classList.add('sticky-header');
+                    headerFound = true;
+                } 
+                // Supprimer/Cacher tout ce qui est AU-DESSUS du bandeau bleu
+                else if (!headerFound) {
+                    row.style.display = 'none';
+                }
+                // Supprimer les lignes totalement vides en bas
                 if (!row.innerText.trim()) {
                     row.remove();
                 }
@@ -96,12 +106,10 @@
         } catch (error) {
             console.error(error);
             document.getElementById('excel-display').innerHTML = 
-                `<p class="error">Erreur : Impossible de charger le fichier Excel. <br> 
-                Vérifiez le nom du fichier et utilisez Live Server.</p>`;
+                `<p class="error">Erreur : Impossible de charger le fichier .xlsx dans /documents/.<br>Utilisez "Live Server" sur VS Code.</p>`;
         }
     }
 
-    // Lancement au chargement de la page
     window.onload = loadExcel;
 </script>
 
