@@ -4,29 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compétences - Portfolio Alexandre</title>
-    
-    <!-- Polices -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Fichiers CSS -->
     <link rel="stylesheet" href="../style/Navbar.css">
     <link rel="stylesheet" href="../style/formation.css">
     <link rel="stylesheet" href="../style/competences.css">
-    
-    <!-- Bibliothèque pour lire le Excel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
 
 <header class="main-header">
     <a href="../index.html" class="logo">Alexandre<span>.Dev</span></a>
-
     <div class="menu-toggle" id="mobile-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </div>
-
     <nav class="nav-menu">
         <ul>
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
@@ -40,33 +30,27 @@
 </header>
 
 <section class="intro">
-    <h2>Tableau des Compétences</h2>
-    <p>Référentiel officiel BTS SIO - Option SLAM</p>
+    <h2>Mes Compétences</h2>
+    <p>Référentiel officiel BTS SIO - Session 2026</p>
 </section>
 
-<!-- SECTION TABLEAU TRES LARGE -->
 <main class="table-wrapper">
     <div class="table-container">
-        <div id="excel-display" class="loading">
-            Chargement du référentiel de compétences...
-        </div>
+        <div id="excel-display" class="loading">Chargement et analyse du fichier...</div>
     </div>
 </main>
 
 <script>
-    // --- Gestion du Menu Mobile ---
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('active');
     });
 
-    // --- Lecture et Nettoyage du Excel ---
     async function loadExcel() {
         try {
-            // Appel du fichier (Assure-toi qu'il n'y a qu'un seul point avant xlsx)
+            // VERIFIE BIEN LE NOM : competences.xlsx
             const response = await fetch('../documents/competences.xlsx'); 
             if (!response.ok) throw new Error("Fichier introuvable");
 
@@ -75,38 +59,48 @@
             const workbook = XLSX.read(data, { type: 'array' });
             const worksheet = workbook.Sheets[workbook.SheetNames[0]];
 
-            // Conversion HTML
-            const htmlTable = XLSX.utils.sheet_to_html(worksheet, { blankrows: false });
-            const container = document.getElementById('excel-display');
-            container.innerHTML = htmlTable;
-
-            // --- LOGIQUE DE DETECTION DU BANDEAU BLEU ---
-            const table = container.querySelector('table');
-            const rows = Array.from(table.querySelectorAll('tr'));
-            let headerFound = false;
+            // On convertit en HTML brut
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = XLSX.utils.sheet_to_html(worksheet, { blankrows: false });
+            
+            const rawTable = tempDiv.querySelector('table');
+            const rows = Array.from(rawTable.querySelectorAll('tr'));
+            
+            // On crée un nouveau tableau propre
+            const newTable = document.createElement('table');
+            const thead = document.createElement('thead');
+            const tbody = document.createElement('tbody');
+            
+            let foundHeader = false;
 
             rows.forEach(row => {
-                const content = row.innerText.toUpperCase();
+                const text = row.innerText.toUpperCase();
                 
-                // Détection de la ligne "BTS SERVICES..."
-                if (content.includes("BTS SERVICES") || content.includes("SESSION 2026")) {
-                    row.classList.add('sticky-header');
-                    headerFound = true;
+                // Détection de la ligne bleue (Le bandeau)
+                if (text.includes("BTS SERVICES") || text.includes("SESSION 2026")) {
+                    row.classList.add('blue-banner');
+                    thead.appendChild(row); // On met cette ligne dans l'en-tête
+                    foundHeader = true;
                 } 
-                // Supprimer/Cacher tout ce qui est AU-DESSUS du bandeau bleu
-                else if (!headerFound) {
-                    row.style.display = 'none';
-                }
-                // Supprimer les lignes totalement vides en bas
-                if (!row.innerText.trim()) {
-                    row.remove();
+                // On n'ajoute au corps du tableau que ce qui est APRES le bandeau bleu
+                else if (foundHeader) {
+                    // On vérifie que la ligne n'est pas vide
+                    if (row.innerText.trim() !== "") {
+                        tbody.appendChild(row);
+                    }
                 }
             });
 
+            newTable.appendChild(thead);
+            newTable.appendChild(tbody);
+            
+            const container = document.getElementById('excel-display');
+            container.innerHTML = ""; // On vide le message de chargement
+            container.appendChild(newTable);
+
         } catch (error) {
             console.error(error);
-            document.getElementById('excel-display').innerHTML = 
-                `<p class="error">Erreur : Impossible de charger le fichier .xlsx dans /documents/.<br>Utilisez "Live Server" sur VS Code.</p>`;
+            document.getElementById('excel-display').innerHTML = `<p class="error">Erreur : Impossible de charger le fichier Excel. Vérifiez qu'il est bien dans /documents/ et que vous utilisez Live Server.</p>`;
         }
     }
 

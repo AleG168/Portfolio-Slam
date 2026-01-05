@@ -2,89 +2,76 @@
 .table-wrapper {
     display: flex;
     justify-content: center;
-    padding: 10px;
-    background-color: #f4f4f4;
+    padding: 20px 10px;
 }
 
-/* Container extra large */
 .table-container {
     width: 98%;
-    max-width: 1700px;
+    max-width: 1600px;
     background: white;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden; /* Important pour les bords arrondis */
 }
 
-/* Zone de scroll interne */
+/* Zone de défilement */
 #excel-display {
-    max-height: 750px; /* Coupe le tableau après cette hauteur */
+    max-height: 700px; /* Hauteur avant scroll */
     overflow-y: auto;
     overflow-x: auto;
     position: relative;
-    border: 1px solid #ddd;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Poppins', sans-serif;
-    table-layout: auto;
 }
 
-/* --- FIX DU BANDEAU BLEU STATIQUE --- */
-/* On cible la classe ajoutée par le JavaScript sur la ligne du titre */
-tr.sticky-header td {
-    background-color: #00d2d3 !important; /* Bleu Cyan SLAM */
+/* --- LE BANDEAU BLEU (STICKY) --- */
+/* On force le sticky sur l'élément thead */
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Style de la ligne bleue détectée */
+tr.blue-banner td {
+    background-color: #00d2d3 !important; /* Cyan SLAM */
     color: white !important;
     font-weight: 600;
-    text-transform: uppercase;
-    position: sticky;
-    top: 0; /* Reste collé en haut du scroll */
-    z-index: 100;
+    text-align: center;
     padding: 20px !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: none;
+    text-transform: uppercase;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Ombre pour flotter sur le reste */
 }
 
-/* Style des cellules normales */
-td {
+/* --- Style des cellules du corps --- */
+tbody td {
     padding: 15px 20px;
     border: 1px solid #eee;
-    text-align: left;
     font-size: 0.95rem;
     vertical-align: top;
-    min-width: 180px; /* Évite que les colonnes soient trop serrées */
+    background-color: white;
 }
 
-/* Lignes une sur deux */
-tr:nth-child(even) {
-    background-color: #fafafa;
+/* Lignes alternées */
+tbody tr:nth-child(even) td {
+    background-color: #f9f9f9;
 }
 
 /* Effet au survol */
-tr:hover {
+tbody tr:hover td {
     background-color: #f1faff;
 }
 
-/* --- Messages --- */
-.loading {
-    text-align: center;
-    padding: 80px;
-    color: #888;
-    font-style: italic;
-}
+/* Messages */
+.loading { text-align: center; padding: 50px; color: #888; font-style: italic; }
+.error { color: #e74c3c; text-align: center; padding: 40px; font-weight: bold; }
 
-.error {
-    color: #e74c3c;
-    text-align: center;
-    padding: 40px;
-    font-weight: bold;
-}
-
-/* --- Responsive --- */
+/* Mobile */
 @media (max-width: 768px) {
-    .table-container { border-radius: 0; width: 100%; }
-    td { padding: 10px; font-size: 0.8rem; }
+    td { padding: 10px; font-size: 0.85rem; }
 }
