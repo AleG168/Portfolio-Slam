@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétences - Portfolio SLAM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/Navbar.css">
+    <link rel="stylesheet" href="../style/formation.css"> <!-- On réutilise ton style de base -->
+    
+    <!-- Bibliothèque pour lire le Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <style>
+        /* Style spécifique pour le tableau */
+        .table-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            overflow-x: auto; /* Scroll si trop large */
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #00d2d3;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.95rem;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <a href="../index.html" class="logo">Alexandre<span>.Dev</span></a>
+    <div class="menu-toggle" id="mobile-menu">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="formation.html" class="nav-link">Formation</a></li>
+            <li><a href="competences.html" class="nav-link">Compétences</a></li>
+            <li><a href="stages.html" class="nav-link">Stages</a></li>
+            <li><a href="projets.html" class="nav-link">Projets</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="intro">
+    <h2>Mes Compétences (Tableau de bord)</h2>
+    <p>Retrouvez ci-dessous le détail de mes compétences extraites de mon suivi de formation.</p>
+</section>
+
+<div class="table-container">
+    <div id="excel-display" class="loading">Chargement du tableau de compétences...</div>
+</div>
+
+<script>
+    // --- Gestion du Menu Burger ---
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+    });
+
+    // --- Lecture du fichier Excel ---
+    async function loadExcel() {
+        try {
+            // REMPLACE 'ton-fichier.xlsx' par le vrai nom/chemin de ton fichier
+            const response = await fetch('../data/competences.xlsx'); 
+            const arrayBuffer = await response.arrayBuffer();
+            const data = new Uint8Array(arrayBuffer);
+            const workbook = XLSX.read(data, { type: 'array' });
+
+            // On prend la première feuille de calcul
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+
+            // Conversion en HTML
+            const htmlTable = XLSX.utils.sheet_to_html(worksheet);
+
+            // Injection dans la page
+            document.getElementById('excel-display').innerHTML = htmlTable;
+        } catch (error) {
+            console.error("Erreur lors du chargement du fichier Excel:", error);
+            document.getElementById('excel-display').innerHTML = 
+                "<p style='color:red;'>Erreur : Impossible de charger le fichier Excel. Vérifiez le chemin du fichier.</p>";
+        }
+    }
+
+    // Lancer le chargement au démarrage
+    window.onload = loadExcel;
+</script>
+
+</body>
+</html>
