@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compétences - Portfolio Alexandre</title>
+    
+    <!-- Polices -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Fichiers de styles -->
     <link rel="stylesheet" href="../style/Navbar.css">
     <link rel="stylesheet" href="../style/formation.css">
     <link rel="stylesheet" href="../style/competences.css">
+    
+    <!-- Bibliothèque JS pour lire le fichier Excel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
 
 <header class="main-header">
     <a href="../index.html" class="logo">Alexandre<span>.Dev</span></a>
+
     <div class="menu-toggle" id="mobile-menu">
-        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
+
     <nav class="nav-menu">
         <ul>
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
@@ -31,79 +41,72 @@
 
 <section class="intro">
     <h2>Mes Compétences</h2>
-    <p>Référentiel officiel BTS SIO - Session 2026</p>
+    <p>Référentiel détaillé issu de ma formation BTS SIO (SLAM).</p>
 </section>
 
+<!-- ZONE DU TABLEAU -->
 <main class="table-wrapper">
     <div class="table-container">
-        <div id="excel-display" class="loading">Chargement et analyse du fichier...</div>
+        <div id="excel-display" class="loading">
+            Chargement du tableau de compétences...
+        </div>
     </div>
 </main>
 
 <script>
+    // --- Script pour le Menu Mobile ---
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
+
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('active');
     });
 
+    // --- Script pour charger le fichier Excel ---
     async function loadExcel() {
         try {
-            // VERIFIE BIEN LE NOM : competences.xlsx
+            // VERIFICATION : Ton fichier doit s'appeler competences.xlsx dans le dossier documents
             const response = await fetch('../documents/competences.xlsx'); 
-            if (!response.ok) throw new Error("Fichier introuvable");
+            
+            if (!response.ok) throw new Error("Fichier Excel introuvable");
 
             const arrayBuffer = await response.arrayBuffer();
             const data = new Uint8Array(arrayBuffer);
             const workbook = XLSX.read(data, { type: 'array' });
+
+            // On récupère la première feuille du fichier
             const worksheet = workbook.Sheets[workbook.SheetNames[0]];
 
-            // On convertit en HTML brut
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = XLSX.utils.sheet_to_html(worksheet, { blankrows: false });
-            
-            const rawTable = tempDiv.querySelector('table');
-            const rows = Array.from(rawTable.querySelectorAll('tr'));
-            
-            // On crée un nouveau tableau propre
-            const newTable = document.createElement('table');
-            const thead = document.createElement('thead');
-            const tbody = document.createElement('tbody');
-            
-            let foundHeader = false;
+            // Conversion en HTML
+            const container = document.getElementById('excel-display');
+            container.innerHTML = XLSX.utils.sheet_to_html(worksheet, { blankrows: false });
 
+            // --- TRAITEMENT DES LIGNES ---
+            const rows = container.querySelectorAll('tr');
             rows.forEach(row => {
                 const text = row.innerText.toUpperCase();
                 
-                // Détection de la ligne bleue (Le bandeau)
+                // Si la ligne contient le titre du BTS, on lui met le style bleu
                 if (text.includes("BTS SERVICES") || text.includes("SESSION 2026")) {
-                    row.classList.add('blue-banner');
-                    thead.appendChild(row); // On met cette ligne dans l'en-tête
-                    foundHeader = true;
-                } 
-                // On n'ajoute au corps du tableau que ce qui est APRES le bandeau bleu
-                else if (foundHeader) {
-                    // On vérifie que la ligne n'est pas vide
-                    if (row.innerText.trim() !== "") {
-                        tbody.appendChild(row);
-                    }
+                    row.classList.add('ligne-bleue');
+                }
+
+                // Supprime les lignes totalement vides qui pourraient venir d'Excel
+                if (!row.innerText.trim()) {
+                    row.remove();
                 }
             });
 
-            newTable.appendChild(thead);
-            newTable.appendChild(tbody);
-            
-            const container = document.getElementById('excel-display');
-            container.innerHTML = ""; // On vide le message de chargement
-            container.appendChild(newTable);
-
         } catch (error) {
             console.error(error);
-            document.getElementById('excel-display').innerHTML = `<p class="error">Erreur : Impossible de charger le fichier Excel. Vérifiez qu'il est bien dans /documents/ et que vous utilisez Live Server.</p>`;
+            document.getElementById('excel-display').innerHTML = 
+                `<p class="error">Erreur : Impossible de charger le fichier Excel.<br>
+                Assurez-vous d'utiliser "Live Server" sur VS Code.</p>`;
         }
     }
 
+    // Lancer la fonction au chargement de la page
     window.onload = loadExcel;
 </script>
 
