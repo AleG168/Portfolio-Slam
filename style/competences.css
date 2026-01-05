@@ -1,68 +1,86 @@
-/* Container du tableau */
-.table-container {
-    width: 95%;
-    max-width: 1100px;
-    margin: 30px auto;
-    background: #ffffff;
+/* Wrapper pour centrer sur la page */
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Scroll horizontal sur mobile */
+    min-height: 60vh;
 }
 
-/* Style du tableau généré dynamiquement */
+/* Container du tableau avec ombre et arrondi */
+.table-container {
+    width: 100%;
+    max-width: 1100px; /* Largeur max du tableau */
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden; /* Pour que les arrondis fonctionnent */
+}
+
+/* Zone de scroll interne pour couper le bas en trop */
+#excel-display {
+    max-height: 550px; /* Hauteur max avant de scroller à l'intérieur */
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+/* Style du tableau HTML généré */
 #excel-display table {
     width: 100%;
     border-collapse: collapse;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
+    font-size: 0.95rem;
 }
 
-/* En-tête du tableau Excel */
+/* En-tête (La première ligne de ton Excel) */
 #excel-display tr:first-child {
-    background-color: #00d2d3; /* Couleur Cyan SLAM */
+    background-color: #00d2d3;
     color: white;
     font-weight: 600;
+    position: sticky;
+    top: 0; /* Garde le titre visible au scroll */
+    z-index: 2;
 }
 
-/* Cellules */
 #excel-display td {
     padding: 12px 15px;
     border: 1px solid #eee;
-    text-align: left;
-    font-size: 0.9rem;
 }
 
-/* Effet au survol des lignes */
+/* Alternance de couleurs pour les lignes */
+#excel-display tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Survol des lignes */
 #excel-display tr:hover {
     background-color: #f1faff;
-    transition: 0.2s;
 }
 
-/* État de chargement ou erreur */
-.loading {
-    text-align: center;
-    font-style: italic;
-    padding: 50px;
-    color: #888;
-}
-
+/* Message d'erreur */
 .error {
-    color: #ff4d4d;
+    color: #e74c3c;
     text-align: center;
+    padding: 20px;
     font-weight: bold;
 }
 
-/* Ajustement pour les petits écrans */
-@media screen and (max-width: 768px) {
+/* État de chargement */
+.loading {
+    text-align: center;
+    padding: 50px;
+    color: #999;
+    font-style: italic;
+}
+
+/* Adaptabilité mobile */
+@media (max-width: 768px) {
     .table-container {
-        width: 100%;
-        border-radius: 0;
         padding: 10px;
+        border-radius: 0;
     }
-    
     #excel-display td {
-        font-size: 0.8rem;
         padding: 8px;
+        font-size: 0.85rem;
     }
 }
