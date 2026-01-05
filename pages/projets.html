@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Portfolio SLAM SIO2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/Navbar.css">
+    <link rel="stylesheet" href="../style/projets.css">
+</head>
+<body>
+
+<header class="main-header">
+    <a href="../index.html" class="logo">Alexandre<span>.Dev</span></a>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="formation.html" class="nav-link">Formation</a></li>
+            <li><a href="competences.html" class="nav-link">Compétences</a></li>
+            <li><a href="stages.html" class="nav-link">Stages</a></li>
+            <li><a href="projets.html" class="nav-link active">Projets</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="intro">
+    <h2>Mes Projets & Stages</h2>
+    <p>Découvrez les réalisations marquantes de mon parcours en BTS SIO SLAM.</p>
+</section>
+
+<!-- ---------- TIMELINE DES PROJETS ----------- -->
+<section class="timeline-section">
+    <div class="timeline">
+
+        <!-- Stage 1ère année -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="date">26 Mai 2025 — 28 Juin 2025</span>
+                <h3>Stage de 1ère année : Leano Design</h3>
+                <p><strong>Projet : Création d'un site vitrine</strong></p>
+                <p>Lors de ce premier stage, j'ai été chargé de concevoir et développer un site web vitrine pour l'entreprise Leano Design.</p>
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>UI/UX Design</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 2ème année -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="date">05 Janvier 2026 — 21 Février 2026</span>
+                <h3>Stage de 2ème année : Application Mobile</h3>
+                <p><strong>Projet : Jeux pour le Lycée</strong></p>
+                <p>Développement d'une application mobile ludique destinée aux élèves du lycée. Ce projet regroupe plusieurs mini-jeux éducatifs et interactifs.</p>
+                <div class="tech-tags">
+                    <span>Mobile Development</span>
+                    <span>C# / Flutter / React Native</span>
+                    <span>Gestion de Projet</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div style="text-align: center; margin-bottom: 50px;">
+    <a href="stages.html" class="btn-cv">Voir le détail des stages</a>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
