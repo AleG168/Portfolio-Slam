@@ -1,86 +1,99 @@
-/* Wrapper pour centrer sur la page */
+/* --- Mise en page globale --- */
 .table-wrapper {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px;
-    min-height: 60vh;
+    padding: 10px;
+    min-height: 80vh; /* Utilise plus de hauteur d'écran */
 }
 
-/* Container du tableau avec ombre et arrondi */
+/* --- Container du tableau (Très large) --- */
 .table-container {
-    width: 100%;
-    max-width: 1100px; /* Largeur max du tableau */
+    width: 98%; /* Prend presque toute la largeur */
+    max-width: 1600px; /* Limite maximale pour les très grands écrans */
     background: white;
-    padding: 20px;
+    padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    overflow: hidden; /* Pour que les arrondis fonctionnent */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden; /* Coupe ce qui dépasse du rayon de bordure */
 }
 
-/* Zone de scroll interne pour couper le bas en trop */
+/* --- Zone de scroll interne (Pour fixer l'en-tête) --- */
 #excel-display {
-    max-height: 550px; /* Hauteur max avant de scroller à l'intérieur */
-    overflow-y: auto;
-    overflow-x: auto;
-}
-
-/* Style du tableau HTML généré */
-#excel-display table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-}
-
-/* En-tête (La première ligne de ton Excel) */
-#excel-display tr:first-child {
-    background-color: #00d2d3;
-    color: white;
-    font-weight: 600;
-    position: sticky;
-    top: 0; /* Garde le titre visible au scroll */
-    z-index: 2;
-}
-
-#excel-display td {
-    padding: 12px 15px;
+    max-height: 700px; /* Hauteur du tableau avant de scroller à l'intérieur */
+    overflow-y: auto; /* Scroll vertical */
+    overflow-x: auto; /* Scroll horizontal pour les colonnes larges */
     border: 1px solid #eee;
 }
 
-/* Alternance de couleurs pour les lignes */
-#excel-display tr:nth-child(even) {
-    background-color: #f9f9f9;
+/* --- Style du tableau HTML --- */
+#excel-display table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
 }
 
-/* Survol des lignes */
+/* --- EN-TETE STATIQUE (STICKY) --- */
+/* On cible les cellules de la première ligne */
+#excel-display tr:first-child td {
+    background-color: #00d2d3 !important; /* Le bleu SLAM */
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0; /* Reste "collé" en haut du bloc #excel-display */
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Ombre pour l'effet de superposition */
+    padding: 15px 20px;
+}
+
+/* --- Style des cellules --- */
+#excel-display td {
+    padding: 12px 18px;
+    border: 1px solid #eee;
+    text-align: left;
+    font-size: 0.95rem;
+    min-width: 120px; /* Évite que les colonnes soient trop écrasées */
+}
+
+/* Alternance de couleurs de lignes */
+#excel-display tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+/* Effet au survol */
 #excel-display tr:hover {
     background-color: #f1faff;
+    transition: 0.2s ease-in-out;
 }
 
-/* Message d'erreur */
+/* --- Messages d'erreur et chargement --- */
 .error {
     color: #e74c3c;
     text-align: center;
-    padding: 20px;
+    padding: 40px;
     font-weight: bold;
+    line-height: 1.6;
 }
 
-/* État de chargement */
 .loading {
     text-align: center;
-    padding: 50px;
+    padding: 60px;
     color: #999;
     font-style: italic;
+    font-size: 1.1rem;
 }
 
-/* Adaptabilité mobile */
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
     .table-container {
-        padding: 10px;
+        width: 100%;
+        padding: 5px;
         border-radius: 0;
     }
+    
     #excel-display td {
         padding: 8px;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 }

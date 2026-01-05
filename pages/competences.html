@@ -8,12 +8,12 @@
     <!-- Polices -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <!-- CSS (Assure-toi que les chemins sont bons) -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../style/Navbar.css">
     <link rel="stylesheet" href="../style/formation.css">
     <link rel="stylesheet" href="../style/competences.css">
     
-    <!-- Bibliothèque pour lire le Excel -->
+    <!-- Bibliothèque pour lire le fichier Excel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
@@ -41,20 +41,20 @@
 
 <section class="intro">
     <h2>Mes Compétences</h2>
-    <p>Suivi détaillé de mon apprentissage et de mes validations techniques.</p>
+    <p>Référentiel technique et validation des acquis de formation.</p>
 </section>
 
-<!-- SECTION TABLEAU -->
+<!-- SECTION TABLEAU AGRANDIE -->
 <main class="table-wrapper">
     <div class="table-container">
         <div id="excel-display" class="loading">
-            Chargement du fichier Excel en cours...
+            Chargement du tableau de bord...
         </div>
     </div>
 </main>
 
 <script>
-    // --- Menu Mobile ---
+    // --- Gestion du Menu Mobile ---
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -63,30 +63,29 @@
         navMenu.classList.toggle('active');
     });
 
-    // --- Chargement de l'Excel ---
+    // --- Chargement et Traitement de l'Excel ---
     async function loadExcel() {
         try {
-            // NOTE : J'ai mis un seul point à competences.xlsx. 
-            // Si ton fichier a encore deux points, renomme-le dans ton dossier.
+            // Assure-toi que ton fichier s'appelle bien "competences.xlsx" (un seul point)
             const response = await fetch('../documents/competences.xlsx'); 
             
-            if (!response.ok) throw new Error("Fichier introuvable");
+            if (!response.ok) throw new Error("Fichier Excel introuvable dans /documents/");
 
             const arrayBuffer = await response.arrayBuffer();
             const data = new Uint8Array(arrayBuffer);
             const workbook = XLSX.read(data, { type: 'array' });
 
-            // On récupère la 1ère feuille
+            // On prend la première feuille de calcul
             const sheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[sheetName];
 
-            // Conversion HTML avec suppression des lignes vides (blankrows: false)
+            // Conversion en HTML (blankrows: false permet de supprimer les lignes vides du bas)
             const htmlTable = XLSX.utils.sheet_to_html(worksheet, { blankrows: false });
 
             const container = document.getElementById('excel-display');
             container.innerHTML = htmlTable;
 
-            // Nettoyage final : suppression des lignes TR qui contiendraient uniquement des cellules vides
+            // Nettoyage supplémentaire des lignes totalement vides
             const rows = container.querySelectorAll('tr');
             rows.forEach(row => {
                 if (!row.innerText.trim()) {
@@ -97,10 +96,12 @@
         } catch (error) {
             console.error(error);
             document.getElementById('excel-display').innerHTML = 
-                `<p class="error">Erreur de chargement : Vérifiez que le fichier est bien dans /documents/ et que vous utilisez Live Server.</p>`;
+                `<p class="error">Erreur : Impossible de charger le fichier Excel. <br> 
+                Vérifiez le nom du fichier et utilisez Live Server.</p>`;
         }
     }
 
+    // Lancement au chargement de la page
     window.onload = loadExcel;
 </script>
 
