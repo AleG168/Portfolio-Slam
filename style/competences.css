@@ -1,5 +1,4 @@
 /* --- Mise en page globale --- */
-/* Le .table-wrapper agit comme le conteneur principal pour le PDF */
 .table-wrapper {
     display: flex;
     justify-content: center;
@@ -7,26 +6,27 @@
     background-color: #f4f4f4; /* Garde la couleur de fond */
 }
 
-/* Styles pour le conteneur du PDF */
-.pdf-container {
+/* Styles pour le conteneur de l'image */
+.image-container {
     width: 90%; /* Prend 90% de la largeur disponible */
-    max-width: 1200px; /* Limite la largeur maximale pour éviter un PDF trop large sur grands écrans */
+    max-width: 1200px; /* Limite la largeur maximale pour éviter une image trop large sur grands écrans */
     margin: 40px auto; /* Centre le conteneur horizontalement et ajoute 40px de marge en haut et en bas */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée pour faire ressortir le cadre */
     border-radius: 8px; /* Bords légèrement arrondis */
-    overflow: hidden; /* Important pour que l'iframe soit contenue dans le border-radius et l'ombre */
-    background-color: #fff; /* Fond blanc derrière le PDF, si jamais il y a des marges */
+    overflow: hidden; /* Important pour que l'image soit contenue dans le border-radius et l'ombre */
+    background-color: #fff; /* Fond blanc derrière l'image */
 }
 
-/* S'assurer que l'iframe prend toute la place dans son conteneur et n'a pas de bordure */
-.pdf-container iframe {
-    display: block; /* Supprime l'espace sous l'iframe */
-    border: none; /* Supprime la bordure par défaut de l'iframe */
+/* Styles pour l'image elle-même */
+.image-container img {
+    display: block; /* Supprime l'espace sous l'image */
+    width: 100%; /* L'image prend toute la largeur de son conteneur */
+    height: auto; /* Maintient le ratio de l'image */
 }
 
 /* --- Mobile --- */
 @media (max-width: 768px) {
-    .pdf-container {
+    .image-container {
         width: 100%; /* Prend toute la largeur sur mobile */
         margin: 20px auto; /* Un peu moins de marge verticale */
         border-radius: 0; /* Pas de bords arrondis sur mobile pour optimiser l'espace */
