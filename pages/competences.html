@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="../style/formation.css">
     <link rel="stylesheet" href="../style/competences.css">
     
-    <!-- Bibliothèque JS pour lire le fichier Excel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- La bibliothèque JS pour lire le fichier Excel a été supprimée -->
 </head>
 <body>
 
@@ -45,12 +44,22 @@
     <p>Référentiel détaillé issu de ma formation BTS SIO (SLAM).</p>
 </section>
 
-<!-- ZONE DU TABLEAU -->
+<!-- ZONE DU TABLEAU (maintenant avec le PDF intégré) -->
 <main class="table-wrapper">
-    <div class="table-container">
-        <div id="excel-display" class="loading">
-            Chargement du tableau de compétences...
-        </div>
+    <div class="pdf-container">
+        <iframe 
+            src="../documents/competences.pdf" 
+            width="100%" 
+            height="1000px"  <!-- Ajuste cette hauteur selon la longueur de ton PDF et ton souhait d'affichage. Augmente si le tableau est coupé. -->
+            title="Tableau de compétences - Alexandre"
+            allowfullscreen 
+            webkitallowfullscreen 
+            mozallowfullscreen
+        >
+            <!-- Message de secours si le navigateur ne peut pas afficher les PDF -->
+            Votre navigateur ne supporte pas l'affichage des PDF. 
+            <a href="../documents/competences.pdf" target="_blank">Cliquez ici pour télécharger le fichier de compétences.</a>
+        </iframe>
     </div>
 </main>
 
@@ -64,51 +73,7 @@
         navMenu.classList.toggle('active');
     });
 
-    // --- Script pour charger le fichier Excel ---
-    async function loadExcel() {
-        try {
-            // VERIFICATION : Ton fichier doit s'appeler competences.xlsx dans le dossier documents
-            const response = await fetch('../documents/competences.xlsx'); 
-            
-            if (!response.ok) throw new Error("Fichier Excel introuvable");
-
-            const arrayBuffer = await response.arrayBuffer();
-            const data = new Uint8Array(arrayBuffer);
-            const workbook = XLSX.read(data, { type: 'array' });
-
-            // On récupère la première feuille du fichier
-            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-
-            // Conversion en HTML
-            const container = document.getElementById('excel-display');
-            container.innerHTML = XLSX.utils.sheet_to_html(worksheet, { blankrows: false });
-
-            // --- TRAITEMENT DES LIGNES ---
-            const rows = container.querySelectorAll('tr');
-            rows.forEach(row => {
-                const text = row.innerText.toUpperCase();
-                
-                // Si la ligne contient le titre du BTS, on lui met le style bleu
-                if (text.includes("BTS SERVICES") || text.includes("SESSION 2026")) {
-                    row.classList.add('ligne-bleue');
-                }
-
-                // Supprime les lignes totalement vides qui pourraient venir d'Excel
-                if (!row.innerText.trim()) {
-                    row.remove();
-                }
-            });
-
-        } catch (error) {
-            console.error(error);
-            document.getElementById('excel-display').innerHTML = 
-                `<p class="error">Erreur : Impossible de charger le fichier Excel.<br>
-                Assurez-vous d'utiliser "Live Server" sur VS Code.</p>`;
-        }
-    }
-
-    // Lancer la fonction au chargement de la page
-    window.onload = loadExcel;
+    // Le script pour charger le fichier Excel a été entièrement supprimé.
 </script>
 
 </body>

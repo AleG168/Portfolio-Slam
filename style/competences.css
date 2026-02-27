@@ -1,85 +1,35 @@
 /* --- Mise en page globale --- */
+/* Le .table-wrapper agit comme le conteneur principal pour le PDF */
 .table-wrapper {
     display: flex;
     justify-content: center;
     padding: 20px 10px;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Garde la couleur de fond */
 }
 
-/* Container du tableau (Agrandi) */
-.table-container {
-    width: 98%;
-    max-width: 1600px;
-    background: white;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    overflow-x: auto; /* Permet de défiler sur le côté si le tableau est trop large */
+/* Styles pour le conteneur du PDF */
+.pdf-container {
+    width: 90%; /* Prend 90% de la largeur disponible */
+    max-width: 1200px; /* Limite la largeur maximale pour éviter un PDF trop large sur grands écrans */
+    margin: 40px auto; /* Centre le conteneur horizontalement et ajoute 40px de marge en haut et en bas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée pour faire ressortir le cadre */
+    border-radius: 8px; /* Bords légèrement arrondis */
+    overflow: hidden; /* Important pour que l'iframe soit contenue dans le border-radius et l'ombre */
+    background-color: #fff; /* Fond blanc derrière le PDF, si jamais il y a des marges */
 }
 
-/* Style général du tableau */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-}
-
-/* --- STYLE DE LA LIGNE BLEUE (Bandeau) --- */
-tr.ligne-bleue td {
-    background-color: #00d2d3 !important; /* Couleur Cyan SLAM */
-    color: white !important;
-    font-weight: 600;
-    text-align: center;
-    padding: 20px !important;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    border: none !important;
-}
-
-/* Style des cellules normales */
-td {
-    padding: 12px 15px;
-    border: 1px solid #eee;
-    text-align: left;
-    font-size: 0.95rem;
-    vertical-align: top;
-}
-
-/* Lignes alternées pour la lisibilité */
-tr:nth-child(even) {
-    background-color: #fcfcfc;
-}
-
-/* Effet au survol */
-tr:hover {
-    background-color: #f1faff;
-    transition: 0.2s;
-}
-
-/* Messages */
-.loading {
-    text-align: center;
-    padding: 60px;
-    color: #999;
-    font-style: italic;
-}
-
-.error {
-    color: #e74c3c;
-    text-align: center;
-    padding: 40px;
-    font-weight: bold;
+/* S'assurer que l'iframe prend toute la place dans son conteneur et n'a pas de bordure */
+.pdf-container iframe {
+    display: block; /* Supprime l'espace sous l'iframe */
+    border: none; /* Supprime la bordure par défaut de l'iframe */
 }
 
 /* --- Mobile --- */
 @media (max-width: 768px) {
-    .table-container {
-        padding: 5px;
-        border-radius: 0;
-    }
-    td {
-        padding: 10px;
-        font-size: 0.85rem;
+    .pdf-container {
+        width: 100%; /* Prend toute la largeur sur mobile */
+        margin: 20px auto; /* Un peu moins de marge verticale */
+        border-radius: 0; /* Pas de bords arrondis sur mobile pour optimiser l'espace */
+        box-shadow: none; /* Pas d'ombre sur mobile pour un look plus épuré */
     }
 }
