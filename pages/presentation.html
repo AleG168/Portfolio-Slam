@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation - Portfolio SLAM SIO2</title>
+    <title>Présentation & Formation - Portfolio Alexandre</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fichiers CSS -->
     <link rel="stylesheet" href="../style/Navbar.css">
-    <link rel="stylesheet" href="../style/presentation.css">
+    <link rel="stylesheet" href="../style/presentation_globale.css">
 </head>
 <body>
 
@@ -22,16 +26,16 @@
     <nav class="nav-menu">
         <ul>
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
-            <li><a href="presentation.html" class="nav-link active">Présentation</a></li>
-            <li><a href="formation.html" class="nav-link">Formation</a></li>
+            <li><a href="presentation.html" class="nav-link active">Présentation & Formation</a></li>
             <li><a href="competences.html" class="nav-link">E5</a></li>
             <li><a href="stages.html" class="nav-link">Stages</a></li>
             <li><a href="projets.html" class="nav-link">Projets</a></li>
-            <li><a href="certifications.html" class="nav-link active">Certifications</a></li>
+            <li><a href="certifications.html" class="nav-link">Certifications</a></li>
         </ul>
     </nav>
 </header>
 
+<!-- ================= SECTION PRÉSENTATION ================= -->
 <section class="intro">
     <h2>À propos de moi</h2>
     <p>Étudiant en BTS SIO option SLAM, passionné par le développement logiciel.</p>
@@ -54,19 +58,14 @@
 <!-- ---------- TIMELINE ----------- -->
 <section class="timeline-section">
     <h2>Mon Parcours</h2>
-
     <div class="timeline">
-
-        <!-- Timeline Item 1 -->
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
                 <h3>2022 — Obtention du Baccalauréat Général</h3>
-                <p>Obtention du Bac. Début de mon intérêt pour le développement et l'informatique grâce à la spécialité NSI.</p>
+                <p>Début de mon intérêt pour le développement grâce à la spécialité NSI.</p>
             </div>
         </div>
-
-        <!-- Timeline Item 2 -->
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -74,8 +73,6 @@
                 <p>Découverte du HTML, CSS, JS et réalisation de mes premières applications personnelles.</p>
             </div>
         </div>
-
-        <!-- Timeline Item 3 -->
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -83,95 +80,76 @@
                 <p>Démarrage de ma formation orientée développement logiciel & gestion de projet.</p>
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- SECTION BOUTON CV CENTRÉ -->
 <div class="cv-section">
     <a href="../documents/CV_Alexandre.pdf" download class="btn-cv">Télécharger mon CV</a>
 </div>
 
+<!-- ================= SECTION FORMATION (AJOUTÉE) ================= -->
+<section class="separator-title">
+    <hr>
+    <h2>Ma Formation Détaillée</h2>
+</section>
 
 <section class="bts">
     <div class="bts-box">
         <h3>Qu’est-ce que le BTS SIO ?</h3>
         <p>
-            Le BTS Services Informatiques aux Organisations est un diplôme qui forme des techniciens capables d’intervenir
-            dans les domaines du développement, de la cybersécurité, de l’assistance ou encore de l’administration réseau.
+            Le BTS Services Informatiques aux Organisations forme des techniciens capables d’intervenir
+            dans le développement, la cybersécurité et l’administration réseau.
         </p>
-
-        <p>Il propose deux spécialités :</p>
-
         <ul class="options-list">
-            <li><strong>SISR</strong> – Administration, réseau, cybersécurité, infrastructure.</li>
+            <li><strong>SISR</strong> – Administration, réseau, cybersécurité.</li>
             <li><strong>SLAM</strong> – Développement d’applications, sites web, bases de données.</li>
         </ul>
     </div>
 </section>
 
-<!-- ----------- SECTION OPTION SLAM ----------- -->
 <section class="slam">
     <h2>Option SLAM</h2>
-    <p>L’option que j’ai choisie : Solutions Logicielles et Applications Métiers.</p>
+    <p>Solutions Logicielles et Applications Métiers.</p>
 
     <div class="cards">
         <div class="card">
             <i class="fas fa-code icon-card"></i>
             <h3>Développement</h3>
-            <p>Apprentissage du développement web, logiciel, programmation orientée objet, et frameworks modernes.</p>
+            <p>Web, logiciel, programmation orientée objet (POO) et frameworks.</p>
         </div>
-
         <div class="card">
             <i class="fas fa-database icon-card"></i>
             <h3>Bases de données</h3>
-            <p>Modélisation, gestion, optimisation et requêtes SQL sur MySQL ou MariaDB.</p>
+            <p>Modélisation SQL (MySQL, MariaDB) et optimisation.</p>
         </div>
-
         <div class="card">
             <i class="fas fa-tasks icon-card"></i>
             <h3>Gestion de projets</h3>
-            <p>Méthodes agiles, analyse des besoins, conception UML, cycle de développement.</p>
+            <p>Méthodes agiles, analyse des besoins et conception UML.</p>
         </div>
     </div>
 </section>
 
-<!-- ----------- SECTION COMPÉTENCES RÉVISÉE ----------- -->
 <section class="competences">
     <div class="container">
         <h2>Compétences développées</h2>
         <div class="competences-grid">
-            
             <div class="comp-item">
                 <div class="comp-icon"><i class="fas fa-shield-alt"></i></div>
                 <p>Développer des applications sécurisées</p>
             </div>
-
             <div class="comp-item">
                 <div class="comp-icon"><i class="fas fa-table"></i></div>
-                <p>Concevoir des bases de données et manipuler SQL</p>
+                <p>Concevoir des bases de données</p>
             </div>
-
             <div class="comp-item">
                 <div class="comp-icon"><i class="fas fa-laptop-code"></i></div>
-                <p>Créer des sites web modernes et responsives</p>
+                <p>Créer des sites web modernes</p>
             </div>
-
             <div class="comp-item">
                 <div class="comp-icon"><i class="fas fa-users-cog"></i></div>
-                <p>Intervenir sur des projets en mode agile</p>
+                <p>Gestion de projet en mode Agile</p>
             </div>
-
-            <div class="comp-item">
-                <div class="comp-icon"><i class="fas fa-tools"></i></div>
-                <p>Assurer la maintenance et l’évolution d’applications</p>
-            </div>
-
-            <div class="comp-item">
-                <div class="comp-icon"><i class="fas fa-file-alt"></i></div>
-                <p>Créer une documentation technique claire</p>
-            </div>
-
         </div>
     </div>
 </section>
