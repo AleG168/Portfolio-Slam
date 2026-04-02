@@ -24,6 +24,16 @@
     height: auto; /* Maintient le ratio de l'image (TRÈS IMPORTANT pour l'adaptabilité) */
 }
 
+.cv-section {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;
+    padding: 60px 20px;
+    width: 100%;
+}
+
+
+
 /* --- Mobile --- */
 @media (max-width: 768px) {
     .image-container {
