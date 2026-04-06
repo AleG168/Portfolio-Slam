@@ -6,14 +6,12 @@
     <title>Compétences - Portfolio Alexandre</title>
     
     <!-- Polices -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <!-- Fichiers de styles -->
     <link rel="stylesheet" href="../style/Navbar.css">
     <link rel="stylesheet" href="../style/formation.css">
     <link rel="stylesheet" href="../style/competences.css">
-    
-    <!-- La bibliothèque JS pour lire le fichier Excel a été supprimée -->
 </head>
 <body>
 
@@ -30,20 +28,21 @@
         <ul>
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
             <li><a href="presentation.html" class="nav-link">Présentation</a></li>
-            <li><a href="competences.html" class="nav-link">E5</a></li>
+            <li><a href="competences.html" class="nav-link active">E5</a></li>
             <li><a href="stages.html" class="nav-link">Stages</a></li>
             <li><a href="projets.html" class="nav-link">Projets</a></li>
-            <li><a href="certifications.html" class="nav-link active">Certifications</a></li>
+            <li><a href="certifications.html" class="nav-link">Certifications</a></li>
         </ul>
     </nav>
 </header>
 
+<!-- Titre stylisé -->
 <section class="intro">
     <h2>E5</h2>
     <p>Référentiel détaillé issu de ma formation BTS SIO (SLAM).</p>
 </section>
 
-<!-- ZONE DU TABLEAU (maintenant avec l'image) -->
+<!-- ZONE DU TABLEAU -->
 <main class="table-wrapper">
     <div class="image-container">
         <img 
@@ -52,8 +51,11 @@
             loading="lazy" 
         >
 
+        <!-- Section du bouton à l'intérieur du cadre blanc -->
         <div class="cv-section">
-            <a href="../documents/Alexandre_Le_Guern_tab_E5.xlsx" download class="btn-cv">Télécharger le tableau</a>
+            <a href="../documents/Alexandre_Le_Guern_tab_E5.xlsx" download class="btn-cv">
+                Télécharger le tableau
+            </a>
         </div>
     </div>
 </main>
@@ -67,7 +69,6 @@
         menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('active');
     });
-
 </script>
 
 </body>

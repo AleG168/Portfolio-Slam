@@ -1,45 +1,97 @@
-/* --- Mise en page globale --- */
+/* --- Mise en page globale (Section Intro) --- */
+.intro {
+    text-align: center;
+    padding: 80px 20px 40px;
+    background-color: #f4f4f4;
+}
+
+/* Style du titre "E5" (Inspiré de l'image "Mes Stages") */
+.intro h2 {
+    font-size: 3rem;
+    font-weight: 800; /* Très gras */
+    color: #000;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- Zone du Tableau --- */
 .table-wrapper {
     display: flex;
     justify-content: center;
     padding: 20px 10px;
-    background-color: #f4f4f4; /* Garde la couleur de fond */
+    background-color: #f4f4f4;
 }
 
 /* Styles pour le conteneur de l'image */
 .image-container {
-    width: 95%; /* Augmenté à 95% pour prendre plus de largeur disponible */
-    max-width: 1600px; /* Augmenté la largeur maximale à 1600px (ou plus si tu as un écran très large) */
-    margin: 40px auto; /* Centre le conteneur horizontalement et ajoute 40px de marge en haut et en bas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée pour faire ressortir le cadre */
-    border-radius: 8px; /* Bords légèrement arrondis */
-    overflow: hidden; /* Important pour que l'image soit contenue dans le border-radius et l'ombre */
-    background-color: #fff; /* Fond blanc derrière l'image */
+    width: 95%;
+    max-width: 1600px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Ombre portée */
+    border-radius: 12px; /* Bords arrondis */
+    overflow: hidden;
+    background-color: #fff;
 }
 
-/* Styles pour l'image elle-même */
 .image-container img {
-    display: block; /* Supprime l'espace sous l'image */
-    width: 100%; /* L'image prend toute la largeur de son conteneur */
-    height: auto; /* Maintient le ratio de l'image (TRÈS IMPORTANT pour l'adaptabilité) */
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
+/* --- Section du Bouton --- */
 .cv-section {
     display: flex;
-    justify-content: center; /* Centre horizontalement */
+    justify-content: center;
     align-items: center;
     padding: 60px 20px;
     width: 100%;
+    background-color: #fff; /* Fond blanc sous l'image pour le bouton */
 }
 
+/* Style du bouton (Inspiré de l'image turquoise "Télécharger mon CV") */
+.btn-cv {
+    display: inline-block;
+    background-color: #00d7d7; /* Turquoise vif */
+    color: #ffffff;
+    padding: 18px 45px;
+    border-radius: 50px; /* Forme pilule parfaite */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    /* Ombre portée turquoise comme sur l'image */
+    box-shadow: 0 10px 20px rgba(0, 215, 215, 0.3);
+    border: none;
+    cursor: pointer;
+}
 
+.btn-cv:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0, 215, 215, 0.4);
+    background-color: #00e6e6;
+}
 
 /* --- Mobile --- */
 @media (max-width: 768px) {
+    .intro h2 {
+        font-size: 2.2rem;
+    }
     .image-container {
-        width: 100%; /* Prend toute la largeur sur mobile */
-        margin: 20px auto; /* Un peu moins de marge verticale */
-        border-radius: 0; /* Pas de bords arrondis sur mobile pour optimiser l'espace */
-        box-shadow: none; /* Pas d'ombre sur mobile pour un look plus épuré */
+        width: 100%;
+        margin: 20px auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .btn-cv {
+        padding: 15px 30px;
+        font-size: 1rem;
     }
 }
