@@ -1,20 +1,21 @@
-/* --- Variables & Reset --- */
+/* --- Variables --- */
 :root {
     --primary-color: #00d2d3;
     --primary-hover: #0ae3e5;
-    --bg-light: #f8f9fa;
-    --text-dark: #2d3436;
-    --text-gray: #636e72;
+    --bg-body: #f4f7f6;
+    --text-main: #2d3436;
+    --text-light: #636e72;
     --white: #ffffff;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: var(--white);
-    color: var(--text-dark);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
 }
 
 .container {
@@ -23,65 +24,51 @@ body {
     padding: 0 20px;
 }
 
-/* --- Intro Section --- */
+/* --- Intro --- */
 .projects-intro {
     text-align: center;
-    padding: 80px 0 50px;
+    padding: 80px 0 40px;
 }
 
 .projects-intro h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
-    position: relative;
-    display: inline-block;
-}
-
-.projects-intro h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background: var(--primary-color);
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    color: var(--text-main);
 }
 
 .projects-intro p {
-    color: var(--text-gray);
-    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Grille --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
     margin-top: 20px;
 }
 
-/* --- Grille de projets --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    padding-bottom: 50px;
-}
-
-/* --- Cartes de projets --- */
+/* --- Cartes --- */
 .project-card {
     background: var(--white);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
 }
 
-/* Image du projet */
 .project-image {
     width: 100%;
     height: 220px;
-    background: #e9ecef; /* Fond gris en attente d'image */
+    background: #dfe6e9; /* Couleur d'attente si image absente */
     overflow: hidden;
 }
 
@@ -89,14 +76,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
 }
 
-.project-card:hover .project-image img {
-    transform: scale(1.1);
-}
-
-/* Contenu du projet */
 .project-content {
     padding: 25px;
     display: flex;
@@ -104,75 +85,72 @@ body {
     flex-grow: 1;
 }
 
-.project-category {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: var(--primary-color);
+.project-date {
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
 }
 
 .project-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: var(--text-dark);
+    margin: 0 0 15px 0;
+    font-size: 1.4rem;
 }
 
 .project-content p {
     font-size: 0.95rem;
-    color: var(--text-gray);
-    line-height: 1.6;
+    color: var(--text-light);
     margin-bottom: 20px;
-    flex-grow: 1;
 }
 
-/* Tags de technos */
-.project-tags {
+/* --- Compétences (Spans) --- */
+.project-competences {
+    margin-top: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-.project-tags span {
+.project-competences span {
     background: #e0fafa;
-    color: #00b3b3;
-    padding: 5px 12px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    color: #008a8a;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-left: 3px solid var(--primary-color);
 }
 
-/* --- Footer & Bouton --- */
+/* --- Footer --- */
 .action-footer {
     text-align: center;
-    padding: 40px 0 80px;
+    padding: 60px 0 80px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 15px 35px;
-    background-color: var(--primary-color);
-    color: var(--white);
+    padding: 14px 30px;
+    background: var(--primary-color);
+    color: white;
     text-decoration: none;
-    font-weight: 600;
     border-radius: 50px;
-    transition: 0.3s ease;
+    font-weight: 600;
+    transition: 0.3s;
     box-shadow: 0 4px 15px rgba(0, 210, 211, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
+    background: var(--primary-hover);
     transform: scale(1.05);
 }
 
-/* --- Responsive --- */
+/* --- Tablette / Mobile --- */
 @media (max-width: 768px) {
-    .projects-intro h2 {
-        font-size: 2.2rem;
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
     
-    .projects-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    .projects-intro h2 {
+        font-size: 2rem;
     }
 }
