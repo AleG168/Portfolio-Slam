@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets - Portfolio SLAM SIO2</title>
+    <title>Projets - Portfolio Alexandre</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/Navbar.css">
     <link rel="stylesheet" href="../style/projets.css">
@@ -31,90 +31,74 @@
     </nav>
 </header>
 
-<section class="intro">
-    <h2>Mes Projets</h2>
-    <p>Découvrez les réalisations majeures effectuées durant mon parcours en BTS SIO SLAM.</p>
-</section>
-
-<!-- ---------- TIMELINE DES PROJETS ----------- -->
-<section class="timeline-section">
-    <div class="timeline">
-
-        <!-- Projet 1 : EGNARO -->
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <span class="date">Infrastructure & Web</span>
-                <h3>Projet EGNARO</h3>
-                <p><strong>Hébergement et Intranet</strong></p>
-                <p>Réalisation d'un intranet pour une entreprise fictive. Ce projet incluait la configuration complète et l'hébergement de services web sécurisés.</p>
-                
-                <!-- Emplacement Image -->
-                <div class="project-image-container">
-                    <img src="../assets/egnaro.png" alt="Projet Egnaro" class="project-img">
-                </div>
-
-                <div class="tech-tags">
-                    <span>Apache/Nginx</span>
-                    <span>Hébergement</span>
-                    <span>Intranet</span>
-                    <span>Réseau</span>
-                </div>
-            </div>
+<section class="projects-section">
+    <div class="container">
+        <div class="projects-intro">
+            <h2>Mes Réalisations</h2>
+            <p>Voici les projets majeurs que j'ai réalisés durant ma formation en BTS SIO SLAM.</p>
         </div>
 
-        <!-- Projet 2 : Métiers BTS SIO -->
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <span class="date">Développement Web</span>
-                <h3>Métiers BTS SIO</h3>
-                <p><strong>Étude des débouchés</strong></p>
-                <p>Conception et développement d'un site web répertoriant les différents métiers, les missions et les opportunités de carrière après un BTS SIO.</p>
-                
-                <!-- Emplacement Image -->
-                <div class="project-image-container">
-                    <img src="../assets/metiers-sio.png" alt="Métiers BTS SIO" class="project-img">
+        <div class="projects-grid">
+            
+            <!-- Projet 1 : EGNARO -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="../assets/egnaro.jpg" alt="Projet Egnaro">
+                    <!-- Si pas d'image, le fond gris stylisé s'affichera -->
                 </div>
+                <div class="project-content">
+                    <span class="project-category">Infrastructure & Web</span>
+                    <h3>Projet EGNARO</h3>
+                    <p>Réalisation d'un intranet pour une entreprise fictive. Ce projet a mobilisé des compétences en configuration de serveurs et en hébergement de services web sécurisés.</p>
+                    <div class="project-tags">
+                        <span>Linux</span>
+                        <span>Apache</span>
+                        <span>Intranet</span>
+                    </div>
+                </div>
+            </article>
 
-                <div class="tech-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>Web Design</span>
-                    <span>Veille</span>
+            <!-- Projet 2 : Métiers BTS SIO -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="../assets/metiers-sio.jpg" alt="Métiers BTS SIO">
                 </div>
-            </div>
+                <div class="project-content">
+                    <span class="project-category">Analyse & Web</span>
+                    <h3>Métiers BTS SIO</h3>
+                    <p>Conception d'un site web complet répertoriant les différents débouchés et opportunités de carrière. Une étude approfondie des métiers du secteur informatique.</p>
+                    <div class="project-tags">
+                        <span>HTML/CSS</span>
+                        <span>Analyse</span>
+                        <span>Orientation</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Projet 3 : FLD Animation -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="../assets/fld-animation.jpg" alt="FLD Animation">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Développement Mobile</span>
+                    <h3>FLD Animation</h3>
+                    <p>Application mobile événementielle. Les élèves forment des équipes pour réussir des épreuves créées par les surveillants et récolter des indices pour un Cluedo géant.</p>
+                    <div class="project-tags">
+                        <span>Dart/Flutter</span>
+                        <span>Mobile</span>
+                        <span>Firebase</span>
+                    </div>
+                </div>
+            </article>
+
         </div>
 
-        <!-- Projet 3 : FLD Animation -->
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <span class="date">Développement Mobile</span>
-                <h3>FLD Animation</h3>
-                <p><strong>Application Lycée & Cluedo Géant</strong></p>
-                <p>Création d'une application mobile permettant aux surveillants de gérer des épreuves et aux élèves de former des équipes pour gagner des points. Les scores permettent d'obtenir des indices pour un Cluedo géant au sein du lycée.</p>
-                
-                <!-- Emplacement Image -->
-                <div class="project-image-container">
-                    <img src="../assets/fld-animation.png" alt="FLD Animation" class="project-img">
-                </div>
-
-                <div class="tech-tags">
-                    <span>Mobile App</span>
-                    <span>Gamification</span>
-                    <span>Firebase / SQL</span>
-                    <span>Gestion de Projet</span>
-                </div>
-            </div>
+        <div class="action-footer">
+            <a href="stages.html" class="btn-primary">Consulter mes stages</a>
         </div>
-
     </div>
 </section>
-
-<div style="text-align: center; margin: 50px 0;">
-    <a href="stages.html" class="btn-cv">Voir mes expériences en entreprise (Stages)</a>
-</div>
 
 <script>
     const menuToggle = document.getElementById('mobile-menu');

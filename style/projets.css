@@ -1,193 +1,178 @@
-/* Base de la page */
+/* --- Variables & Reset --- */
+:root {
+    --primary-color: #00d2d3;
+    --primary-hover: #0ae3e5;
+    --bg-light: #f8f9fa;
+    --text-dark: #2d3436;
+    --text-gray: #636e72;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    color: #333;
+    background-color: var(--white);
+    color: var(--text-dark);
 }
 
-.intro {
-    text-align: center;
-    padding: 80px 20px 50px 20px;
-}
-
-.intro h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.intro p {
-    color: #666;
-    max-width: 600px;
+.container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* ----- Timeline Structure ----- */
-.timeline-section {
-    padding: 40px 20px;
-    background: #fcfcfc;
+/* --- Intro Section --- */
+.projects-intro {
+    text-align: center;
+    padding: 80px 0 50px;
 }
 
-.timeline {
+.projects-intro h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
     position: relative;
-    max-width: 1100px;
-    margin: auto;
+    display: inline-block;
 }
 
-/* La ligne centrale */
-.timeline::before {
-    content: "";
+.projects-intro h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
     position: absolute;
+    bottom: -10px;
     left: 50%;
-    width: 3px;
-    height: 100%;
-    background: #00d2d3;
     transform: translateX(-50%);
 }
 
-.timeline-item {
-    position: relative;
-    width: 50%;
-    padding: 20px 60px;
-    box-sizing: border-box;
-}
-
-/* Alternance gauche / droite */
-.timeline-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-    text-align: left;
-}
-
-/* Les points sur la ligne */
-.timeline-dot {
-    width: 20px;
-    height: 20px;
-    background: #00d2d3;
-    border: 4px solid #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 30px;
-    left: calc(50% - 10px);
-    z-index: 2;
-}
-
-/* Blocs de contenu */
-.timeline-content {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.timeline-content:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-.timeline-content h3 {
-    color: #00d2d3;
-    margin: 10px 0;
-    font-size: 1.6rem;
-}
-
-.date {
-    display: inline-block;
-    background: #00d2d3;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-/* Gestion des images */
-.project-image-container {
-    margin: 20px 0;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 12px;
-    background-color: #f0f0f0; /* Fond gris si pas d'image */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* L'image remplit le cadre sans se déformer */
-    transition: transform 0.5s ease;
-}
-
-.timeline-content:hover .project-img {
-    transform: scale(1.1);
-}
-
-/* Tags de technologies */
-.tech-tags {
+.projects-intro p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
     margin-top: 20px;
 }
 
-.tech-tags span {
-    display: inline-block;
+/* --- Grille de projets --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+/* --- Cartes de projets --- */
+.project-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Image du projet */
+.project-image {
+    width: 100%;
+    height: 220px;
+    background: #e9ecef; /* Fond gris en attente d'image */
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+/* Contenu du projet */
+.project-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Tags de technos */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
     background: #e0fafa;
     color: #00b3b3;
     padding: 5px 12px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    margin: 4px;
+    border-radius: 5px;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
-/* Bouton bas de page */
-.btn-cv {
+/* --- Footer & Bouton --- */
+.action-footer {
+    text-align: center;
+    padding: 40px 0 80px;
+}
+
+.btn-primary {
     display: inline-block;
-    padding: 15px 30px;
-    background: #00d2d3;
-    color: white;
+    padding: 15px 35px;
+    background-color: var(--primary-color);
+    color: var(--white);
     text-decoration: none;
     font-weight: 600;
     border-radius: 50px;
-    transition: 0.3s;
+    transition: 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 210, 211, 0.3);
 }
 
-.btn-cv:hover {
-    background: #0ae3e5;
+.btn-primary:hover {
+    background-color: var(--primary-hover);
     transform: scale(1.05);
 }
 
-/* Responsive (Mobile) */
+/* --- Responsive --- */
 @media (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
+    .projects-intro h2 {
+        font-size: 2.2rem;
     }
-
-    .timeline-item {
-        width: 100%;
-        padding-left: 50px;
-        padding-right: 20px;
-        text-align: left !important;
-    }
-
-    .timeline-dot {
-        left: 10px;
-    }
-
-    .timeline-item:nth-child(even) {
-        left: 0;
-    }
-
-    .project-image-container {
-        height: 150px;
+    
+    .projects-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
     }
 }
