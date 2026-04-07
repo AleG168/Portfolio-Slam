@@ -1,0 +1,168 @@
+:root {
+    --primary-color: #00d2d3;
+    --primary-hover: #0ae3e5;
+    --bg-light: #f9f9f9;
+    --text-dark: #2d3436;
+    --text-gray: #636e72;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Hero --- */
+.veille-hero {
+    background: linear-gradient(135deg, #2d3436 0%, #00d2d3 100%);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.veille-hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.veille-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* --- Sujet Card --- */
+.veille-sujet {
+    margin-top: -50px;
+    padding-bottom: 50px;
+}
+
+.sujet-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.sujet-card h2 span {
+    color: var(--primary-color);
+}
+
+/* --- Methodologie --- */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 60px 0 40px;
+}
+
+.methodo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.methodo-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.methodo-item .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* --- Outils --- */
+.outils-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.outils-list span {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* --- Articles Grid --- */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.article-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--primary-color);
+}
+
+.article-date {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.article-card h3 {
+    margin: 10px 0;
+    font-size: 1.3rem;
+}
+
+.article-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- Action Footer --- */
+.action-footer {
+    text-align: center;
+    padding: 40px 0 80px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--text-dark);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .veille-hero h1 { font-size: 2.2rem; }
+    .methodo-grid { grid-template-columns: 1fr; }
+}

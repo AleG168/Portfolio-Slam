@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique - Portfolio Alexandre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/Navbar.css">
+    <link rel="stylesheet" href="../style/veille.css">
+</head>
+<body>
+
+<header class="main-header">
+    <a href="../index.html" class="logo">Alexandre<span>.Dev</span></a>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="competences.html" class="nav-link">E5</a></li>
+            <li><a href="stages.html" class="nav-link">Stages</a></li>
+            <li><a href="projets.html" class="nav-link">Projets</a></li>
+            <li><a href="veille.html" class="nav-link active">Veille</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="veille-hero">
+    <div class="container">
+        <h1>Veille Technologique</h1>
+        <p>S'informer, analyser et anticiper les évolutions du monde numérique.</p>
+    </div>
+</section>
+
+<!-- Section Sujet de Veille -->
+<section class="veille-sujet">
+    <div class="container">
+        <div class="sujet-card">
+            <h2>Mon Sujet : <span>L'évolution de l'Intelligence Artificielle dans le développement Mobile</span></h2>
+            <p>Ma veille porte sur la manière dont l'IA transforme la création d'applications (outils de codage, intégration de modèles LLM en local, amélioration de l'UI/UX par l'IA).</p>
+        </div>
+    </div>
+</section>
+
+<!-- Section Méthodologie -->
+<section class="methodologie">
+    <div class="container">
+        <h2 class="section-title">Ma Méthodologie</h2>
+        <div class="methodo-grid">
+            <div class="methodo-item">
+                <div class="icon">🔍</div>
+                <h3>Collecter</h3>
+                <p>Utilisation de flux RSS, Google Alerts et réseaux sociaux pour centraliser les informations.</p>
+            </div>
+            <div class="methodo-item">
+                <div class="icon">⚙️</div>
+                <h3>Traiter</h3>
+                <p>Filtrage des articles pertinents et vérification des sources (fiabilité et actualité).</p>
+            </div>
+            <div class="methodo-item">
+                <div class="icon">📤</div>
+                <h3>Diffuser</h3>
+                <p>Stockage et partage des informations via des outils de curation comme Pocket ou Notion.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Outils -->
+<section class="outils">
+    <div class="container">
+        <h2 class="section-title">Mes Outils de Veille</h2>
+        <div class="outils-list">
+            <span>Feedly (RSS)</span>
+            <span>Google Alerts</span>
+            <span>Twitter (X) / LinkedIn</span>
+            <span>Reddit / Dev.to</span>
+            <span>Medium</span>
+        </div>
+    </div>
+</section>
+
+<!-- Section Articles / Flux -->
+<section class="articles-veille">
+    <div class="container">
+        <h2 class="section-title">Derniers Articles Suivis</h2>
+        <div class="articles-grid">
+            
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="article-content">
+                    <span class="article-date">15 Janvier 2025</span>
+                    <h3>Introduction de Gemini Nano dans Android</h3>
+                    <p>Analyse de l'intégration de modèles d'IA directement sur les smartphones pour un traitement local et sécurisé des données.</p>
+                    <a href="#" class="read-more">Lire l'article original →</a>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="article-card">
+                <div class="article-content">
+                    <span class="article-date">02 Février 2025</span>
+                    <h3>Copilot pour Xcode : Le futur d'iOS</h3>
+                    <p>Comment l'IA générative assiste désormais les développeurs Swift pour accélérer la production de code et réduire les bugs.</p>
+                    <a href="#" class="read-more">Lire l'article original →</a>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="article-card">
+                <div class="article-content">
+                    <span class="article-date">10 Février 2025</span>
+                    <h3>UI Adaptive : L'IA au service de l'UX</h3>
+                    <p>Étude sur les interfaces qui s'adaptent automatiquement au comportement de l'utilisateur grâce au machine learning.</p>
+                    <a href="#" class="read-more">Lire l'article original →</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<div class="action-footer">
+    <a href="../assets/Rapport_Veille_Technologique.pdf" target="_blank" class="btn-primary">Télécharger le rapport complet (PDF)</a>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
