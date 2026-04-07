@@ -8,8 +8,10 @@
 
 body {
     background-color: var(--light-bg);
+    font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     position: relative;
+    margin: 0;
 }
 
 /* --- Éléments de Décoration Flous --- */
@@ -44,11 +46,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     color: var(--dark);
-}
-
-.text-gradient {
-    background: var(--grad);
-    -webkit-text-fill-color: transparent;
+    margin: 0;
 }
 
 .intro-cert p {
@@ -59,7 +57,7 @@ body {
 }
 
 .couleurBlue {
-    color : #01a3a4;
+    color: #01a3a4;
 }
 
 /* --- Grille et Cartes --- */
@@ -162,42 +160,44 @@ body {
     margin-bottom: 25px;
 }
 
-/* Footer et Tags */
-.status-tag {
+/* --- Footer et Bouton Centré --- */
+.cert-footer {
+    display: flex;
+    justify-content: center; /* Centre le bouton */
+    align-items: center;
+    margin-top: auto;
+}
+
+.cert-btn {
     display: inline-block;
-    padding: 6px 18px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.pulse-green {
-    background: rgba(46, 213, 115, 0.1);
-    color: #2ed573;
-}
-
-.pulse-cyan {
-    background: rgba(0, 210, 211, 0.1);
-    color: var(--primary);
-}
-
-/* --- Bouton Modernisé --- */
-.btn-cv-modern {
-    display: inline-block;
-    padding: 16px 40px;
-    background: var(--dark);
+    padding: 12px 28px;
+    background: var(--grad);
     color: white;
     text-decoration: none;
+    font-size: 0.9rem;
     font-weight: 600;
     border-radius: 12px;
-    transition: all 0.3s;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 210, 211, 0.2);
+    text-align: center;
+    border: none;
 }
 
-.btn-cv-modern:hover {
-    background: var(--primary);
-    transform: scale(1.05);
+.cert-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 210, 211, 0.3);
+    filter: brightness(1.05);
+}
+
+/* Bouton spécifique Root Me */
+.btn-rootme {
+    background: var(--dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-rootme:hover {
+    background: #333;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive */
