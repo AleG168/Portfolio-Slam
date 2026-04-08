@@ -14,13 +14,9 @@
 
 <header class="main-header">
     <a href="../index.html" class="logo">Alexandre<span>.Slam</span></a>
-
     <div class="menu-toggle" id="mobile-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </div>
-
     <nav class="nav-menu">
         <ul>
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
@@ -52,10 +48,9 @@
                     <span class="project-date">01/09/2024 — 06/01/2025</span>
                     <h3>Projet EGNARO</h3>
                     <p>Hébergement de site web et réalisation d'un intranet pour une entreprise fictive incluant la configuration et l'hébergement de services web.</p>
-                    
                     <div class="project-competences">
                         <span>Gérer le patrimoine informatique</span>
-                        <span>Répondre aux incidents et aux demandes d'assistance</span>
+                        <span>Répondre aux incidents</span>
                         <span>Travailler en mode projet</span>
                         <span>Organiser son développement professionnel</span>
                     </div>
@@ -71,17 +66,16 @@
                     <span class="project-date">10/11/2024 — 06/01/2025</span>
                     <h3>Métiers BTS SIO</h3>
                     <p>Étude des débouchés et conception d'un site web répertoriant les différents métiers et opportunités de carrière après un BTS SIO.</p>
-                    
                     <div class="project-competences">
                         <span>Gérer le patrimoine informatique</span>
                         <span>Travailler en mode projet</span>
-                        <span>Mettre à disposition des utilisateurs un service informatique</span>
+                        <span>Mise à disposition de service informatique</span>
                         <span>Organiser son développement professionnel</span>
                     </div>
                 </div>
             </article>
 
-            <!-- Projet 3 : FLD Animation (AJOUTÉ) -->
+            <!-- Projet 3 : FLD Animation -->
             <article class="project-card">
                 <div class="project-image">
                     <img src="../documents/fld_animation.jpg" alt="FLD Animation">
@@ -90,10 +84,9 @@
                     <span class="project-date">06/01/2025 — 15/05/2025</span>
                     <h3>FLD Animation</h3>
                     <p>Développement d'une plateforme web permettant aux élèves de s'inscrire à diverses animations (ex: ateliers cuisine).</p>
-                    
                     <div class="project-competences">
                         <span>Gérer le patrimoine informatique</span>
-                        <span>Répondre aux incidents et aux demandes d'assistance</span>
+                        <span>Répondre aux incidents et demandes d'assistance</span>
                         <span>Travailler en mode projet</span>
                         <span>Organiser son développement professionnel</span>
                     </div>
@@ -109,12 +102,11 @@
                     <span class="project-date">06/01/2025 — 15/05/2025</span>
                     <h3>Jeu en équipe lycée</h3>
                     <p>Développement d'une application mobile (Jeu Félix Le Dantec) permettant aux surveillants de créer des épreuves et aux élèves de former des équipes.</p>
-                    
                     <div class="project-competences">
                         <span>Gérer le patrimoine informatique</span>
-                        <span>Répondre aux incidents et aux demandes d'assistance</span>
+                        <span>Répondre aux incidents</span>
                         <span>Travailler en mode projet</span>
-                        <span>Mettre à disposition des utilisateurs un service informatique</span>
+                        <span>Mise à disposition de service informatique</span>
                     </div>
                 </div>
             </article>
@@ -129,20 +121,14 @@
 
 <footer class="main-footer">
     <div class="footer-row">
-        <div class="footer-title">
-            <h3>Mes Contacts</h3>
-        </div>
+        <div class="footer-title"><h3>Mes Contacts</h3></div>
         <div class="contact-item">
             <i class="fas fa-envelope"></i>
             <a href="mailto:alexandreleguern16@gmail.com">alexandreleguern16@gmail.com</a>
         </div>
         <div class="social-icons">
-            <a href="https://www.linkedin.com/in/alexandre-le-guern-854940337/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/AleG168" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i>
-            </a>
+            <a href="https://www.linkedin.com/in/alexandre-le-guern-854940337/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/AleG168" target="_blank"><i class="fab fa-github"></i></a>
         </div>
     </div>
 </footer>
@@ -150,7 +136,6 @@
 <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('active');

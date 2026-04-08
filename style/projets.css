@@ -15,67 +15,66 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-body);
     color: var(--text-main);
-    line-height: 1.4; /* Hauteur de ligne plus serrée */
+    line-height: 1.6; /* Un peu plus d'espace pour la lecture */
 }
 
 .container {
-    max-width: 1050px;
+    max-width: 1150px; /* Agrandissement du conteneur (était 1050px) */
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .projects-intro {
     text-align: center;
-    padding: 60px 0 30px; /* Réduit le padding du haut */
+    padding: 70px 0 40px;
 }
 
 .projects-intro h2 {
-    font-size: 2.2rem;
-    margin-bottom: 5px;
+    font-size: 2.4rem; /* Titre légèrement plus grand */
+    margin-bottom: 10px;
 }
 
 /* --- Grille --- */
 .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Espace réduit entre les cartes */
+    gap: 35px; /* Plus d'espace entre les projets (était 25px) */
     margin-top: 10px;
 }
 
-/* --- Cartes Horizontales Compactes --- */
+/* --- Cartes Horizontales --- */
 .project-card {
     background: var(--white);
-    border-radius: 15px;
+    border-radius: 18px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
     display: flex; 
     transition: transform 0.3s ease;
-    /* Suppression du min-height pour laisser le contenu dicter la hauteur */
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .project-image {
-    flex: 0 0 40%; /* Un peu moins large pour l'image */
+    flex: 0 0 42%; /* Image un tout petit peu plus large */
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid #eee;
+    border-right: 1px solid #f0f0f0;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
-    max-height: 250px; /* Limite la hauteur max de l'image */
+    max-height: 300px; /* Agrandissement de l'image (était 250px) */
     object-fit: contain;
-    padding: 15px;
+    padding: 20px;
 }
 
 .project-content {
-    padding: 20px 30px; /* Padding réduit */
+    padding: 35px 45px; /* Plus d'espace intérieur (était 20/30) */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -83,67 +82,73 @@ body {
 }
 
 .project-date {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .project-content h3 {
-    margin: 0 0 8px 0;
-    font-size: 1.5rem;
+    margin: 0 0 12px 0;
+    font-size: 1.7rem; /* Titre plus imposant */
 }
 
 .project-content p {
-    font-size: 0.92rem;
+    font-size: 1rem; /* Texte standard (était 0.92) */
     color: var(--text-light);
-    margin-bottom: 15px; /* Espace réduit sous le texte */
+    margin-bottom: 20px;
 }
 
 /* --- Compétences --- */
 .project-competences {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
 }
 
 .project-competences span {
     background: #f0fdfd;
     color: #008a8a;
-    padding: 5px 12px;
-    border-radius: 6px;
-    font-size: 0.7rem;
+    padding: 6px 14px;
+    border-radius: 7px;
+    font-size: 0.75rem;
     font-weight: 500;
     border-left: 3px solid var(--primary-color);
 }
 
 /* --- Responsive --- */
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .project-card {
         flex-direction: column;
     }
     .project-image {
         flex: none;
-        height: 200px;
+        height: 250px;
     }
     .project-content {
-        padding: 20px;
+        padding: 25px;
     }
 }
 
-/* --- Footer --- */
+/* --- Footer Section --- */
 .action-footer {
     text-align: center;
-    padding: 40px 0 60px;
+    padding: 50px 0 80px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 14px 35px;
     background: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 210, 211, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
 }
