@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique - Portfolio Alexandre</title>
+    <title>Veille Technologique - Alexandre</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../style/footer.css">
     <link rel="stylesheet" href="../style/Navbar.css">
+    <link rel="stylesheet" href="../style/footer.css">
     <link rel="stylesheet" href="../style/veille.css">
 </head>
 <body>
 
 <header class="main-header">
     <a href="../index.html" class="logo">Alexandre<span>.Slam</span></a>
-
     <div class="menu-toggle" id="mobile-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </div>
-
     <nav class="nav-menu">
         <ul>
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
@@ -29,7 +24,6 @@
             <li><a href="competences.html" class="nav-link">E5</a></li>
             <li><a href="projets.html" class="nav-link">Projets</a></li>
             <li><a href="stages.html" class="nav-link">Stages</a></li>
-            <li><a href="certifications.html" class="nav-link active">Certifications</a></li>
             <li><a href="veille.html" class="nav-link active">Veille</a></li>
         </ul>
     </nav>
@@ -37,132 +31,94 @@
 
 <section class="veille-hero">
     <div class="container">
-        <h1>Veille Technologique</h1>
-        <p>S'informer, analyser et anticiper les évolutions du monde numérique.</p>
+        <h1>Ma Veille Technologique</h1>
+        <p>Analyse et suivi des innovations du secteur numérique.</p>
     </div>
 </section>
 
-<!-- Section Sujet de Veille -->
-<section class="veille-sujet">
-    <div class="container">
-        <div class="sujet-card">
-            <h2>Mon Sujet : <span>L'évolution de l'Intelligence Artificielle dans le développement Mobile</span></h2>
-            <p>Ma veille porte sur la manière dont l'IA transforme la création d'applications (outils de codage, intégration de modèles LLM en local, amélioration de l'UI/UX par l'IA).</p>
-        </div>
+<section class="sujet-section container">
+    <div class="sujet-card">
+        <h2>Sujet : <span>L'évolution des outils de développement et de l'IA</span></h2>
+        <p>Ma veille se concentre sur les nouvelles technologies logicielles, la cybersécurité et l'impact de l'IA sur le métier de développeur.</p>
     </div>
 </section>
 
-<!-- Section Méthodologie -->
-<section class="methodologie">
-    <div class="container">
-        <h2 class="section-title">Ma Méthodologie</h2>
-        <div class="methodo-grid">
-            <div class="methodo-item">
-                <div class="icon">🔍</div>
-                <h3>Collecter</h3>
-                <p>Utilisation de flux RSS, Google Alerts et réseaux sociaux pour centraliser les informations.</p>
-            </div>
-            <div class="methodo-item">
-                <div class="icon">⚙️</div>
-                <h3>Traiter</h3>
-                <p>Filtrage des articles pertinents et vérification des sources (fiabilité et actualité).</p>
-            </div>
-            <div class="methodo-item">
-                <div class="icon">📤</div>
-                <h3>Diffuser</h3>
-                <p>Stockage et partage des informations via des outils de curation comme Pocket ou Notion.</p>
+<section class="container">
+    <div class="sources-grid">
+        <!-- Côté Vidéo / YouTube -->
+        <div class="source-category">
+            <h3><i class="fab fa-youtube" style="color: #ff0000;"></i> Veille Audiovisuelle</h3>
+            <div class="comp-list">
+                <div class="comp-item">
+                    <i class="fas fa-play-circle"></i>
+                    <span><strong>Micode :</strong> vulgarisation tech et cybersécurité</span>
+                </div>
+                <div class="comp-item">
+                    <i class="fas fa-microphone"></i>
+                    <span><strong>Underscore_ :</strong> actualités et débats tech</span>
+                </div>
+                <div class="comp-item">
+                    <i class="fas fa-tv"></i>
+                    <span>Reportages sur les innovations matérielles</span>
+                </div>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Section Outils -->
-<section class="outils">
-    <div class="container">
-        <h2 class="section-title">Mes Outils de Veille</h2>
-        <div class="outils-list">
-            <span>Feedly (RSS)</span>
-            <span>Google Alerts</span>
-            <span>Twitter (X) / LinkedIn</span>
-            <span>Reddit / Dev.to</span>
-            <span>Medium</span>
+        <!-- Côté Lecture / Articles -->
+        <div class="source-category">
+            <h3><i class="fas fa-book-open" style="color: var(--primary-color);"></i> Veille Informationnelle</h3>
+            <div class="comp-list">
+                <div class="comp-item">
+                    <i class="far fa-newspaper"></i>
+                    <span>Articles quotidiens sur les nouvelles technologies</span>
+                </div>
+                <div class="comp-item">
+                    <i class="fas fa-rss"></i>
+                    <span>Flux d'actualités spécialisés (Dev.to, Medium)</span>
+                </div>
+                <div class="comp-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>Suivi d'experts du secteur numérique</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Section Articles / Flux -->
-<section class="articles-veille">
-    <div class="container">
-        <h2 class="section-title">Derniers Articles Suivis</h2>
-        <div class="articles-grid">
-            
-            <!-- Article 1 -->
-            <article class="article-card">
-                <div class="article-content">
-                    <span class="article-date">15 Janvier 2025</span>
-                    <h3>Introduction de Gemini Nano dans Android</h3>
-                    <p>Analyse de l'intégration de modèles d'IA directement sur les smartphones pour un traitement local et sécurisé des données.</p>
-                    <a href="#" class="read-more">Lire l'article original →</a>
-                </div>
-            </article>
+<section class="container">
+    <h2 class="section-title">Derniers sujets explorés</h2>
+    <div class="articles-grid">
+        <article class="article-card">
+            <span class="article-date">Février 2025</span>
+            <h4>L'IA générative dans le code</h4>
+            <p>Analyse de l'évolution de Copilot et des outils d'assistance au développement via les vidéos de Micode.</p>
+        </article>
 
-            <!-- Article 2 -->
-            <article class="article-card">
-                <div class="article-content">
-                    <span class="article-date">02 Février 2025</span>
-                    <h3>Copilot pour Xcode : Le futur d'iOS</h3>
-                    <p>Comment l'IA générative assiste désormais les développeurs Swift pour accélérer la production de code et réduire les bugs.</p>
-                    <a href="#" class="read-more">Lire l'article original →</a>
-                </div>
-            </article>
+        <article class="article-card">
+            <span class="article-date">Janvier 2025</span>
+            <h4>Cybersécurité & Données</h4>
+            <p>Étude des récentes failles de sécurité et des méthodes de protection des données personnelles.</p>
+        </article>
 
-            <!-- Article 3 -->
-            <article class="article-card">
-                <div class="article-content">
-                    <span class="article-date">10 Février 2025</span>
-                    <h3>UI Adaptive : L'IA au service de l'UX</h3>
-                    <p>Étude sur les interfaces qui s'adaptent automatiquement au comportement de l'utilisateur grâce au machine learning.</p>
-                    <a href="#" class="read-more">Lire l'article original →</a>
-                </div>
-            </article>
-
-        </div>
+        <article class="article-card">
+            <span class="article-date">Décembre 2024</span>
+            <h4>L'avenir du Web 3.0</h4>
+            <p>Suivi des débats sur la décentralisation et les nouvelles infrastructures serveurs via Underscore_.</p>
+        </article>
     </div>
 </section>
 
 <div class="action-footer">
-    <a href="../assets/Rapport_Veille_Technologique.pdf" target="_blank" class="btn-primary">Télécharger le rapport complet (PDF)</a>
+    <a href="#" class="btn-primary">Consulter mon rapport de veille (PDF)</a>
 </div>
 
 <footer class="main-footer">
-    <div class="footer-row">
-        <!-- Titre -->
-        <div class="footer-title">
-            <h3>Mes Contacts</h3>
-        </div>
-
-        <!-- Email -->
-        <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:alexandreleguern16@gmail.com">alexandreleguern16@gmail.com</a>
-        </div>
-
-        <!-- Réseaux -->
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/alexandre-le-guern-854940337/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/AleG168" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-    </div>
+    <!-- Ton footer actuel ici -->
 </footer>
 
 <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('active');
