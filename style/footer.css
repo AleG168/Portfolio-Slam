@@ -1,0 +1,85 @@
+/* ----------- FOOTER UNE SEULE LIGNE ----------- */
+.main-footer {
+    background-color: #121212;
+    color: #fff;
+    padding: 30px 5%;
+    margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-row {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row; /* Aligne tout sur une ligne */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement sur la page */
+    gap: 50px; /* Espace entre le titre, l'email et les icônes */
+}
+
+/* Style du titre avec la barre en dessous */
+.footer-title h3 {
+    font-size: 1.5rem;
+    position: relative;
+    font-weight: 600;
+    margin: 0;
+}
+
+.footer-title h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 30px;
+    height: 3px;
+    background-color: #00d2d3;
+}
+
+/* Style de l'email */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-item i {
+    color: #00d2d3;
+    font-size: 1.2rem;
+}
+
+.contact-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Style des icônes LinkedIn / GitHub */
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00d2d3;
+}
+
+/* RESPONSIVE : Si l'écran est trop petit, on repasse sur plusieurs lignes */
+@media (max-width: 850px) {
+    .footer-row {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .footer-title h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
