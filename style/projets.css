@@ -15,66 +15,67 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-body);
     color: var(--text-main);
-    line-height: 1.6;
+    line-height: 1.4; /* Hauteur de ligne plus serrée */
 }
 
 .container {
-    max-width: 1100px; /* Un peu plus serré pour l'élégance */
+    max-width: 1050px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .projects-intro {
     text-align: center;
-    padding: 80px 0 40px;
+    padding: 60px 0 30px; /* Réduit le padding du haut */
 }
 
 .projects-intro h2 {
-    font-size: 2.5rem;
-    color: var(--text-main);
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
 }
 
-/* --- Grille en Colonne (Cartes horizontales) --- */
+/* --- Grille --- */
 .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Plus d'espace entre les projets */
-    margin-top: 20px;
+    gap: 25px; /* Espace réduit entre les cartes */
+    margin-top: 10px;
 }
 
-/* --- Cartes Style Horizontal --- */
+/* --- Cartes Horizontales Compactes --- */
 .project-card {
     background: var(--white);
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
-    display: flex; /* Aligne image et texte côte à côte */
+    display: flex; 
     transition: transform 0.3s ease;
-    min-height: 350px;
+    /* Suppression du min-height pour laisser le contenu dicter la hauteur */
 }
 
 .project-card:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
 }
 
-/* L'image prend 45% de la largeur pour bien voir les détails */
 .project-image {
-    flex: 0 0 45%; 
-    background: #f0f0f0;
-    position: relative;
+    flex: 0 0 40%; /* Un peu moins large pour l'image */
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #eee;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Garde tout le schéma visible sans le couper */
-    padding: 10px; /* Petit espace interne pour ne pas coller aux bords */
-    background-color: #fff;
+    max-height: 250px; /* Limite la hauteur max de l'image */
+    object-fit: contain;
+    padding: 15px;
 }
 
 .project-content {
-    padding: 40px;
+    padding: 20px 30px; /* Padding réduit */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -82,74 +83,67 @@ body {
 }
 
 .project-date {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .project-content h3 {
-    margin: 0 0 15px 0;
-    font-size: 1.8rem;
-    color: var(--text-main);
+    margin: 0 0 8px 0;
+    font-size: 1.5rem;
 }
 
 .project-content p {
-    font-size: 1rem;
+    font-size: 0.92rem;
     color: var(--text-light);
-    margin-bottom: 25px;
+    margin-bottom: 15px; /* Espace réduit sous le texte */
 }
 
 /* --- Compétences --- */
 .project-competences {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 6px;
 }
 
 .project-competences span {
     background: #f0fdfd;
     color: #008a8a;
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
     font-weight: 500;
-    border-left: 4px solid var(--primary-color);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    border-left: 3px solid var(--primary-color);
 }
 
-/* --- Responsive (Mobile) --- */
-@media (max-width: 900px) {
+/* --- Responsive --- */
+@media (max-width: 850px) {
     .project-card {
-        flex-direction: column; /* Repasse en vertical sur petit écran */
+        flex-direction: column;
     }
     .project-image {
-        height: 250px;
+        flex: none;
+        height: 200px;
     }
     .project-content {
-        padding: 25px;
+        padding: 20px;
     }
 }
 
 /* --- Footer --- */
 .action-footer {
     text-align: center;
-    padding: 60px 0 80px;
+    padding: 40px 0 60px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 15px 35px;
+    padding: 12px 30px;
     background: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0, 210, 211, 0.3);
-}
-
-.btn-primary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-3px);
 }
