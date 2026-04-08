@@ -16,7 +16,8 @@
 }
 
 .hero-content p {
-    margin-top: 15px;
+    /* "margin: 15px auto 0" centre le bloc horizontalement grâce au 'auto' */
+    margin: 15px auto 0; 
     font-size: 1.2rem;
     max-width: 600px;
     opacity: 0.9;
@@ -127,10 +128,10 @@
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-direction: row; /* Aligne tout sur une ligne */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement sur la page */
-    gap: 50px; /* Espace entre le titre, l'email et les icônes */
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 50px; 
 }
 
 /* Style du titre avec la barre en dessous */
@@ -186,7 +187,7 @@
     color: #00d2d3;
 }
 
-/* RESPONSIVE : Si l'écran est trop petit, on repasse sur plusieurs lignes */
+/* RESPONSIVE FOOTER */
 @media (max-width: 850px) {
     .footer-row {
         flex-direction: column;
